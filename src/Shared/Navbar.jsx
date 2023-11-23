@@ -29,12 +29,12 @@ const Navbar = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 500,
     });
   }, []);
 
   return (
-    <div className="relative flex justify-between items-center font-open bg-primary/10 px-4 md:px-10 lg:px-20 py-1">
+    <div className="relative flex justify-between items-center font-open bg-white px-4 md:px-10 lg:px-20 py-1">
       {/* brand logo */}
 
       <div className="text-dark1 text-lg lg:text-2xl">
@@ -54,14 +54,19 @@ const Navbar = () => {
 
       <div className="relative flex justify-center gap-5 md:gap-8 lg:gap-12">
         <div className="lg:hidden">
-          <Hamburger onToggle={handleToggle} rounded size={22} color="dark1" />
+          <Hamburger
+            onToggle={handleToggle}
+            rounded
+            size={22}
+            color="#121212"
+          />
           {toggle ? (
             <div data-aos="fade-in" className="relative">
-              <div className="absolute top-4 right-0 flex flex-col items-center rounded-xl bg-primary/10 font-medium">
+              <div className="absolute top-4 right-0 flex flex-col items-center rounded-xl bg-primary1 font-medium">
                 {pages.map((page, idx) => (
                   <div
                     key={idx}
-                    className="hover:bg-primary/20 text-center cursor-pointer rounded-xl duration-300 w-full"
+                    className="hover:bg-primary2 text-center cursor-pointer rounded-xl duration-300 w-full"
                   >
                     <NavLink
                       to={page.path}
