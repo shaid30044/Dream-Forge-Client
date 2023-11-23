@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        cinzel: ["Cinzel", "serif"],
-        inter: ["Inter", "sans-serif"],
-        raleway: ["Raleway", "sans-serif"],
+        julius: ["Julius Sans One", "sans-serif"],
+        open: ["Open Sans", "sans-serif"],
       },
 
       colors: {
-        dark1: "#151515",
+        primary: "#f15859",
+        dark1: "#121212",
         dark2: "#444444",
         dark3: "#737373",
         dark4: "#A1A1A1",
