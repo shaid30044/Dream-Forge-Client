@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../Shared/SectionTitle";
 import { FaQuoteLeft } from "react-icons/fa";
+import useProperty from "../../Hooks/useProperty";
 
 const UserReview = () => {
-  const [reviews, setReviews] = useState([]);
+  const [property] = useProperty();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/property.json");
-      const data = await res.json();
-      setReviews(data);
-    };
-    fetchData();
-  }, []);
+  const reviews = property.slice(0, 6);
 
   return (
-    <div className="font-open px-4 md:px-10 lg:px-20 pb-20 lg:pb-40">
+    <div className="font-open px-4 md:px-10 lg:px-20 pb-20 lg:pb-32">
       <SectionTitle title={"Reviews"} />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">

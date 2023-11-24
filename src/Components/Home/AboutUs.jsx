@@ -3,7 +3,7 @@ import about from "../../assets/AboutUs.png";
 
 const AboutUs = () => {
   return (
-    <div className="font-open px-4 md:px-10 lg:px-20 pt-20 lg:pt-40">
+    <div className="font-open px-4 md:px-10 lg:px-20 pt-20 lg:pt-32">
       <SectionTitle title={"About Us"} />
 
       <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-20">

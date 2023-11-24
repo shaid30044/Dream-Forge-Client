@@ -27,7 +27,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="pb-20 lg:pb-40">
+    <div className="pb-20 lg:pb-32">
       <SectionTitle title={"Contact Us"} />
 
       <div style={bgImg} className="font-open bg-fixed md:mx-10 lg:mx-20">

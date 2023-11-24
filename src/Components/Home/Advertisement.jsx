@@ -1,24 +1,16 @@
-import { useEffect, useState } from "react";
 import { GrMapLocation } from "react-icons/gr";
 import { LuBadgeDollarSign } from "react-icons/lu";
 import { BsInfoLg } from "react-icons/bs";
 import SectionTitle from "../../Shared/SectionTitle";
+import useProperty from "../../Hooks/useProperty";
 
 const Advertisement = () => {
-  const [properties, setProperties] = useState([]);
+  const [property] = useProperty();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/property.json");
-      const data = await res.json();
-
-      setProperties(data);
-    };
-    fetchData();
-  }, []);
+  const properties = property.slice(0, 6);
 
   return (
-    <div className="font-open px-4 md:px-10 lg:px-20 py-20 lg:py-40">
+    <div className="font-open px-4 md:px-10 lg:px-20 py-20 lg:py-32">
       <SectionTitle title={"Advertisement"} />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 lg:gap-8">
