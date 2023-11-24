@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../Shared/SectionTitle";
+import { FaQuoteLeft } from "react-icons/fa";
 
 const UserReview = () => {
   const [reviews, setReviews] = useState([]);
@@ -14,7 +15,7 @@ const UserReview = () => {
   }, []);
 
   return (
-    <div className="font-open px-4 md:px-10 lg:px-20 py-20 lg:py-40">
+    <div className="font-open px-4 md:px-10 lg:px-20 pb-20 lg:pb-40">
       <SectionTitle title={"Reviews"} />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -32,7 +33,10 @@ const UserReview = () => {
               </p>
             </div>
 
-            <p className="text-sm text-dark4 leading-6">
+            <p className="text-3xl text-dark5 py-1">
+              <FaQuoteLeft />
+            </p>
+            <p className="text-sm text-dark4 leading-7">
               {review.reviewDescription}
             </p>
           </div>
