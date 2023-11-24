@@ -106,7 +106,7 @@ const Login = () => {
   return (
     <div
       style={backgroundImageStyle}
-      className="relative font-inter bg-cover bg-fixed h-screen"
+      className="relative font-inter bg-cover bg-fixed h-[940px] md:h-[1200px] lg:h-screen"
     >
       <Helmet>
         <title>Dream Forge | Login</title>
@@ -114,7 +114,7 @@ const Login = () => {
 
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
-      <div className="absolute grid lg:grid-cols-2 justify-center items-center gap-20 backdrop-blur-sm h-screen px-4 md:px-10 lg:px-40 py-20 lg:py-32">
+      <div className="absolute grid lg:grid-cols-2 justify-center items-center gap-10 md:gap-20 backdrop-blur-sm h-[940px] md:h-[1200px] lg:h-screen px-4 md:px-10 lg:px-40 py-20 lg:py-32">
         <img
           src={img}
           className="flex justify-center items-center object-cover rounded-3xl h-full"
