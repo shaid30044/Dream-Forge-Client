@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import bg from "../assets/footer.jpg";
+import bg from "../assets/footer.png";
 import logo from "../assets/logo.png";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";

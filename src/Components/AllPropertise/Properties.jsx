@@ -3,6 +3,7 @@ import SectionTitle from "../../Shared/SectionTitle";
 import { GrMapLocation } from "react-icons/gr";
 import { LuBadgeDollarSign } from "react-icons/lu";
 import { BsInfoLg } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Properties = () => {
   const [property] = useProperty();
@@ -57,9 +58,11 @@ const Properties = () => {
 
                 {/* details button */}
 
-                <div className="tooltip tooltip-primary1" data-tip="Details">
-                  <BsInfoLg className="text-xl text-primary bg-primary1 rounded-full cursor-pointer w-7 h-7 p-1" />
-                </div>
+                <Link to={`/property/${property._id}`}>
+                  <div className="tooltip tooltip-primary1" data-tip="Details">
+                    <BsInfoLg className="text-xl text-primary bg-primary1 rounded-full cursor-pointer w-7 h-7 p-1" />
+                  </div>
+                </Link>
               </div>
 
               {/* agent info */}
