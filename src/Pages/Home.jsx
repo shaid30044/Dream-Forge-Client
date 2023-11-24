@@ -3,6 +3,7 @@ import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import Banner from "../Components/Home/Banner";
 import Advertisement from "../Components/Home/Advertisement";
+import UserReview from "../Components/Home/UserReview";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <div className="pt-16">
         <Banner />
         <Advertisement />
+        <UserReview />
         <Footer />
       </div>
     </div>

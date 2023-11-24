@@ -8,7 +8,10 @@
     "details": "Experience city living at its finest in this stylish urban loft. With exposed brick walls, high ceilings, and sleek design, this property is perfect for those seeking a contemporary lifestyle.",
     "agentEmail": "agent1@example.com",
     "agentName": "Alex Johnson",
-    "agentImage": "https://i.ibb.co/LZ9yhFH/image-31.png"
+    "agentImage": "https://i.ibb.co/LZ9yhFH/image-31.png",
+    "reviewerName": "Samantha Williams",
+    "reviewerImage": "https://i.ibb.co/HrFSRbf/image-25.png",
+    "reviewDescription": "We absolutely love our new home! Alex was incredibly helpful throughout the entire process. The attention to detail and professionalism made our experience seamless and enjoyable."
   },
   {
     "propertyImage": "https://i.ibb.co/w4TSFnS/image-3-5.png",
@@ -19,7 +22,10 @@
     "details": "Escape to the suburbs with this spacious family home. Featuring a large backyard, modern kitchen, and proximity to top-rated schools, it's an ideal choice for families.",
     "agentEmail": "agent2@example.com",
     "agentName": "Emily Davis",
-    "agentImage": "https://i.ibb.co/wgkFHtX/image-5-1.png"
+    "agentImage": "https://i.ibb.co/wgkFHtX/image-5-1.png",
+    "reviewerName": "Michael Thompson",
+    "reviewerImage": "https://i.ibb.co/HrFSRbf/image-25.png",
+    "reviewDescription": "Emily went above and beyond to find us the perfect home. Her knowledge of the local market and dedication to her clients made the entire home-buying process smooth and stress-free."
   },
   {
     "propertyImage": "https://i.ibb.co/JqK1s6h/image-4-5.png",
@@ -30,7 +36,10 @@
     "details": "Embrace the charm of the mountains in this cozy cabin. Surrounded by nature, this retreat offers a peaceful escape with stunning views and easy access to hiking trails.",
     "agentEmail": "agent3@example.com",
     "agentName": "Michael Roberts",
-    "agentImage": "https://i.ibb.co/HKssbQ4/image-6-1.png"
+    "agentImage": "https://i.ibb.co/HKssbQ4/image-6-1.png",
+    "reviewerName": "Sarah Miller",
+    "reviewerImage": "https://i.ibb.co/r2cPX2k/image-7-1.png",
+    "reviewDescription": "Our mountain cabin is a dream come true! Michael's expertise and guidance throughout the buying process were invaluable. We highly recommend him to anyone looking for a mountain retreat."
   },
   {
     "propertyImage": "https://i.ibb.co/Kw1LmLb/image-5-4.png",
@@ -41,7 +50,10 @@
     "details": "Live the high life with this luxurious waterfront condo. Enjoy breathtaking views of the ocean, high-end amenities, and direct access to the beach.",
     "agentEmail": "agent4@example.com",
     "agentName": "Sophia Martinez",
-    "agentImage": "https://i.ibb.co/9qfYk1K/image-12-1.png"
+    "agentImage": "https://i.ibb.co/9qfYk1K/image-12-1.png",
+    "reviewerName": "John Davis",
+    "reviewerImage": "https://i.ibb.co/rm1K7jR/image-13-1.png",
+    "reviewDescription": "Sophia made our dream of living on the beach a reality. Her professionalism and dedication to finding us the perfect waterfront condo were truly exceptional."
   },
   {
     "propertyImage": "https://i.ibb.co/m4YfFgC/image-4-1-1.png",
@@ -52,7 +64,10 @@
     "details": "Own a piece of history with this meticulously restored Victorian mansion. Featuring intricate details, grand rooms, and a beautiful garden, it's a timeless masterpiece.",
     "agentEmail": "agent5@example.com",
     "agentName": "William Turner",
-    "agentImage": "https://i.ibb.co/hDRyP9M/image-9-1.png"
+    "agentImage": "https://i.ibb.co/hDRyP9M/image-9-1.png",
+    "reviewerName": "Jennifer Brown",
+    "reviewerImage": "https://i.ibb.co/9qfYk1K/image-12-1.png",
+    "reviewDescription": "William's expertise in historic homes was evident throughout the buying process. Our Victorian mansion is a gem, and we couldn't be happier with the outcome."
   },
   {
     "propertyImage": "https://i.ibb.co/WDXL4cs/image-6-4.png",
@@ -63,7 +78,10 @@
     "details": "Enjoy the coastal lifestyle in this charming beachfront cottage. With sun-filled rooms and a private patio overlooking the ocean, it's the perfect retreat.",
     "agentEmail": "agent6@example.com",
     "agentName": "Olivia White",
-    "agentImage": "https://i.ibb.co/rm1K7jR/image-13-1.png"
+    "agentImage": "https://i.ibb.co/rm1K7jR/image-13-1.png",
+    "reviewerName": "Daniel Johnson",
+    "reviewerImage": "https://i.ibb.co/G5TN8RB/image-23.png",
+    "reviewDescription": "Olivia's knowledge of beachfront properties made our home-buying experience delightful. Our sunny cottage is everything we dreamed of, and we're grateful for Olivia's expertise."
   },
   {
     "propertyImage": "https://i.ibb.co/C6WQ15V/image-7-3.png",
@@ -74,7 +92,10 @@
     "details": "Live in luxury on the golf course with this exquisite estate. Featuring a custom-designed home, private pool, and stunning views, it's a golfer's paradise.",
     "agentEmail": "agent7@example.com",
     "agentName": "Daniel Anderson",
-    "agentImage": "https://i.ibb.co/r2cPX2k/image-7-1.png"
+    "agentImage": "https://i.ibb.co/r2cPX2k/image-7-1.png",
+    "reviewerName": "Jessica Roberts",
+    "reviewerImage": "https://i.ibb.co/HrFSRbf/image-25.png",
+    "reviewDescription": "Daniel's expertise in golf course properties was invaluable. Our estate is a dream come true, and we appreciate the personalized service and attention to detail."
   },
   {
     "propertyImage": "https://i.ibb.co/S7mbKKr/image-8-3.png",
@@ -85,7 +106,10 @@
     "details": "Soak in the city lights from this luxurious penthouse. With floor-to-ceiling windows, a private terrace, and top-of-the-line finishes, it's urban living at its best.",
     "agentEmail": "agent8@example.com",
     "agentName": "Jessica Taylor",
-    "agentImage": "https://i.ibb.co/G5TN8RB/image-23.png"
+    "agentImage": "https://i.ibb.co/G5TN8RB/image-23.png",
+    "reviewerName": "Andrew Carter",
+    "reviewerImage": "https://i.ibb.co/9qfYk1K/image-12-1.png",
+    "reviewDescription": "Jessica made our city living dreams a reality. The penthouse is stunning, and Jessica's attention to detail and commitment to client satisfaction exceeded our expectations."
   },
   {
     "propertyImage": "https://i.ibb.co/LzvPnnb/image-9-3.png",
@@ -96,7 +120,10 @@
     "details": "Escape to the tranquility of the lake in this stunning retreat. Surrounded by nature, this property offers a peaceful getaway with panoramic lake views.",
     "agentEmail": "agent9@example.com",
     "agentName": "David Miller",
-    "agentImage": "https://i.ibb.co/LgS0P8B/image-30.png"
+    "agentImage": "https://i.ibb.co/LgS0P8B/image-30.png",
+    "reviewerName": "Karen Wilson",
+    "reviewerImage": "https://i.ibb.co/9qfYk1K/image-12-1.png",
+    "reviewDescription": "David's expertise in lakefront properties was evident from the start. Our retreat by the lake is a slice of paradise, and we're grateful for David's guidance throughout the process."
   },
   {
     "propertyImage": "https://i.ibb.co/v3q4wRn/image-10-3.png",
@@ -107,6 +134,9 @@
     "details": "Live in style with this contemporary city apartment. Featuring sleek design, skyline views, and proximity to cultural attractions, it's perfect for urban dwellers.",
     "agentEmail": "agent10@example.com",
     "agentName": "Emma Garcia",
-    "agentImage": "https://i.ibb.co/HrFSRbf/image-25.png"
+    "agentImage": "https://i.ibb.co/HrFSRbf/image-25.png",
+    "reviewerName": "Brian Mitchell",
+    "reviewerImage": "https://i.ibb.co/9qfYk1K/image-12-1.png",
+    "reviewDescription": "Emma made our move to the city seamless. The apartment is modern and stylish, and Emma's professionalism and attention to detail made the entire process stress-free."
   }
 ]
