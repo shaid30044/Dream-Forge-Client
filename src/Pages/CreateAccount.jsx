@@ -90,7 +90,7 @@ const CreateAccount = () => {
   return (
     <div
       style={backgroundImageStyle}
-      className="relative font-inter bg-cover bg-fixed h-[1200px] md:h-[1400px] lg:h-[1000px]"
+      className="relative font-open bg-cover bg-fixed h-[1200px] md:h-[1400px] lg:h-[1000px]"
     >
       <Helmet>
         <title>Dream Forge | Create Account</title>

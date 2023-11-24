@@ -5,14 +5,19 @@ import Banner from "../Components/Home/Banner";
 
 const Home = () => {
   return (
-    <div>
+    <div className="relative">
       <Helmet>
         <title>Dream Forge</title>
       </Helmet>
 
-      <Navbar />
-      <Banner />
-      <Footer />
+      <div className="absolute top-0 w-full z-50">
+        <Navbar />
+      </div>
+
+      <div className="pt-16">
+        <Banner />
+        <Footer />
+      </div>
     </div>
   );
 };

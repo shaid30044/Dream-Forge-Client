@@ -2,11 +2,17 @@ import { Spiral as Hamburger } from "hamburger-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link, NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from "../assets/logo.png";
+import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { BiLogInCircle } from "react-icons/bi";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const [toggle, setToggle] = useState(false);
+  const [showUserInfo, setShowUserInfo] = useState(false);
 
   const pages = [
     {
@@ -22,6 +28,40 @@ const Navbar = () => {
       path: "/dashboard",
     },
   ];
+
+  const others = [
+    {
+      id: 1,
+      name: "Profile",
+      path: "/profile",
+    },
+  ];
+
+  const handleUserInfoClick = () => {
+    setShowUserInfo(!showUserInfo);
+  };
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirm",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut().then(() => {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Log Out successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
+      }
+    });
+  };
 
   const handleToggle = () => {
     setToggle(!toggle);
@@ -62,11 +102,11 @@ const Navbar = () => {
           />
           {toggle ? (
             <div data-aos="fade-in" className="relative">
-              <div className="absolute top-4 right-0 flex flex-col items-center rounded-xl bg-primary1 font-medium">
+              <div className="absolute top-4 right-0 flex flex-col items-center rounded-xl backdrop-blur-sm bg-black/20 font-medium">
                 {pages.map((page, idx) => (
                   <div
                     key={idx}
-                    className="hover:bg-primary2 text-center cursor-pointer rounded-xl duration-300 w-full"
+                    className="hover:bg-white/30 text-center cursor-pointer rounded-xl duration-300 w-full"
                   >
                     <NavLink
                       to={page.path}
@@ -75,7 +115,7 @@ const Navbar = () => {
                           ? "pending"
                           : isActive
                           ? "text-primary"
-                          : "text-dark1"
+                          : "text-white"
                       }
                     >
                       <button className="w-64 py-4">{page.name}</button>
@@ -107,6 +147,69 @@ const Navbar = () => {
               </NavLink>
             </div>
           ))}
+        </div>
+
+        {/* user */}
+
+        <div className="relative">
+          {user ? (
+            <button
+              onClick={handleUserInfoClick}
+              className="cursor-pointer pt-2"
+            >
+              <img
+                src={user?.photoURL}
+                alt={`${user.displayName}'s profile`}
+                className="w-8 h-8 rounded-full"
+              />
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="md:hidden text-2xl text-dark1 mt-3">
+                <BiLogInCircle />
+              </button>
+              <button className="hidden md:block btn text-dark1 hover:text-white bg-transparent hover:bg-primary border-2 border-dark1 hover:border-primary rounded-full duration-300 px-6">
+                Log In
+              </button>
+            </Link>
+          )}
+
+          {/* user info */}
+
+          {showUserInfo && user && (
+            <div data-aos="fade-in" className="relative">
+              <div className="absolute top-3.5 md:top-4 lg:top-5 right-4 md:right-0 flex flex-col items-center rounded-xl backdrop-blur-sm bg-black/20 text-white font-medium">
+                {/* user name and email */}
+
+                <div className="border-b-2 border-blue1 mb-2 w-52">
+                  <p className="text-center py-4">{user?.displayName}</p>
+                  <p className="text-center pb-4">{user?.email}</p>
+                </div>
+
+                {/* profile and dashboard */}
+
+                {others.map((other) => (
+                  <div
+                    key={other.id}
+                    className="hover:bg-white/30 hover:rounded-xl text-center cursor-pointer duration-300 w-full"
+                  >
+                    <Link to={other.path}>
+                      <button className="w-60 py-4">{other.name}</button>
+                    </Link>
+                  </div>
+                ))}
+
+                {/* log out */}
+
+                <button
+                  onClick={handleLogout}
+                  className="hover:bg-white/30 hover:rounded-xl hover:rounded-b-xl text-white duration-300 w-full py-4"
+                >
+                  Log Out
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

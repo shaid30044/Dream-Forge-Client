@@ -104,7 +104,7 @@ const Login = () => {
   return (
     <div
       style={backgroundImageStyle}
-      className="relative font-inter bg-cover bg-fixed h-[940px] md:h-[1200px] lg:h-screen"
+      className="relative font-open bg-cover bg-fixed h-[940px] md:h-[1200px] lg:h-screen"
     >
       <Helmet>
         <title>Dream Forge | Login</title>
