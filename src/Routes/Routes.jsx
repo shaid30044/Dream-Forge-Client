@@ -3,6 +3,8 @@ import Root from "../Root";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import CreateAccount from "../Pages/CreateAccount";
+import PrivateRoutes from "./PrivateRoute";
+import AllProperties from "../Pages/AllProperties";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +14,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/allProperties",
+        element: (
+          <PrivateRoutes>
+            <AllProperties />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",
