@@ -6,7 +6,7 @@ const AboutUs = () => {
     <div className="font-open px-4 md:px-10 lg:px-20 pt-20 lg:pt-40">
       <SectionTitle title={"About Us"} />
 
-      <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10">
+      <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-20">
         <div>
           <p className="lg:hidden text-2xl leading-[36px] pb-6">
             Dream <span className="text-primary">Forge</span>: Where dreams meet

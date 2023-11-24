@@ -5,6 +5,7 @@ import Banner from "../Components/Home/Banner";
 import Advertisement from "../Components/Home/Advertisement";
 import UserReview from "../Components/Home/UserReview";
 import AboutUs from "../Components/Home/AboutUs";
+import ContactUs from "../Components/Home/ContactUs";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
         <AboutUs />
         <Advertisement />
         <UserReview />
+        <ContactUs />
         <Footer />
       </div>
     </div>

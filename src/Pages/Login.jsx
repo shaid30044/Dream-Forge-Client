@@ -137,7 +137,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="border-2 border-white bg-transparent text-white rounded-full w-full px-6 py-3"
+              className="border-2 border-white bg-transparent text-white outline-none rounded-full w-full px-6 py-3"
             />
 
             {/* password */}
@@ -148,7 +148,7 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
-                className="border-2 border-white bg-transparent text-white rounded-full w-full px-6 py-3"
+                className="border-2 border-white bg-transparent text-white outline-none rounded-full w-full px-6 py-3"
               />
               <div
                 onClick={() => setShowPassword(!showPassword)}
