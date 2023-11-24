@@ -1,0 +1,112 @@
+[
+  {
+    "propertyImage": "https://i.ibb.co/tZB7M5n/image-2-3.png",
+    "propertyTitle": "Modern Urban Loft",
+    "propertyLocation": "Downtown Los Angeles, CA",
+    "priceRange": "$700,000 - $800,000",
+    "verificationStatus": "verified",
+    "details": "Experience city living at its finest in this stylish urban loft. With exposed brick walls, high ceilings, and sleek design, this property is perfect for those seeking a contemporary lifestyle.",
+    "agentEmail": "agent1@example.com",
+    "agentName": "Alex Johnson",
+    "agentImage": "https://i.ibb.co/LZ9yhFH/image-31.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/w4TSFnS/image-3-5.png",
+    "propertyTitle": "Spacious Suburban Home",
+    "propertyLocation": "Greenwood Village, CO",
+    "priceRange": "$1,200,000 - $1,400,000",
+    "verificationStatus": "verified",
+    "details": "Escape to the suburbs with this spacious family home. Featuring a large backyard, modern kitchen, and proximity to top-rated schools, it's an ideal choice for families.",
+    "agentEmail": "agent2@example.com",
+    "agentName": "Emily Davis",
+    "agentImage": "https://i.ibb.co/wgkFHtX/image-5-1.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/JqK1s6h/image-4-5.png",
+    "propertyTitle": "Rustic Mountain Cabin",
+    "propertyLocation": "Aspen, CO",
+    "priceRange": "$900,000 - $1,100,000",
+    "verificationStatus": "verified",
+    "details": "Embrace the charm of the mountains in this cozy cabin. Surrounded by nature, this retreat offers a peaceful escape with stunning views and easy access to hiking trails.",
+    "agentEmail": "agent3@example.com",
+    "agentName": "Michael Roberts",
+    "agentImage": "https://i.ibb.co/HKssbQ4/image-6-1.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/Kw1LmLb/image-5-4.png",
+    "propertyTitle": "Waterfront Luxury Condo",
+    "propertyLocation": "Miami Beach, FL",
+    "priceRange": "$1,500,000 - $1,800,000",
+    "verificationStatus": "verified",
+    "details": "Live the high life with this luxurious waterfront condo. Enjoy breathtaking views of the ocean, high-end amenities, and direct access to the beach.",
+    "agentEmail": "agent4@example.com",
+    "agentName": "Sophia Martinez",
+    "agentImage": "https://i.ibb.co/9qfYk1K/image-12-1.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/m4YfFgC/image-4-1-1.png",
+    "propertyTitle": "Historic Victorian Mansion",
+    "propertyLocation": "Charleston, SC",
+    "priceRange": "$2,000,000 - $2,500,000",
+    "verificationStatus": "verified",
+    "details": "Own a piece of history with this meticulously restored Victorian mansion. Featuring intricate details, grand rooms, and a beautiful garden, it's a timeless masterpiece.",
+    "agentEmail": "agent5@example.com",
+    "agentName": "William Turner",
+    "agentImage": "https://i.ibb.co/hDRyP9M/image-9-1.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/WDXL4cs/image-6-4.png",
+    "propertyTitle": "Sunny Beachfront Cottage",
+    "propertyLocation": "Santa Monica, CA",
+    "priceRange": "$600,000 - $700,000",
+    "verificationStatus": "verified",
+    "details": "Enjoy the coastal lifestyle in this charming beachfront cottage. With sun-filled rooms and a private patio overlooking the ocean, it's the perfect retreat.",
+    "agentEmail": "agent6@example.com",
+    "agentName": "Olivia White",
+    "agentImage": "https://i.ibb.co/rm1K7jR/image-13-1.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/C6WQ15V/image-7-3.png",
+    "propertyTitle": "Golf Course Estate",
+    "propertyLocation": "Scottsdale, AZ",
+    "priceRange": "$3,000,000 - $3,500,000",
+    "verificationStatus": "verified",
+    "details": "Live in luxury on the golf course with this exquisite estate. Featuring a custom-designed home, private pool, and stunning views, it's a golfer's paradise.",
+    "agentEmail": "agent7@example.com",
+    "agentName": "Daniel Anderson",
+    "agentImage": "https://i.ibb.co/r2cPX2k/image-7-1.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/S7mbKKr/image-8-3.png",
+    "propertyTitle": "City View Penthouse",
+    "propertyLocation": "San Francisco, CA",
+    "priceRange": "$2,800,000 - $3,200,000",
+    "verificationStatus": "verified",
+    "details": "Soak in the city lights from this luxurious penthouse. With floor-to-ceiling windows, a private terrace, and top-of-the-line finishes, it's urban living at its best.",
+    "agentEmail": "agent8@example.com",
+    "agentName": "Jessica Taylor",
+    "agentImage": "https://i.ibb.co/G5TN8RB/image-23.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/LzvPnnb/image-9-3.png",
+    "propertyTitle": "Lakefront Retreat",
+    "propertyLocation": "Lake Tahoe, NV",
+    "priceRange": "$1,800,000 - $2,000,000",
+    "verificationStatus": "verified",
+    "details": "Escape to the tranquility of the lake in this stunning retreat. Surrounded by nature, this property offers a peaceful getaway with panoramic lake views.",
+    "agentEmail": "agent9@example.com",
+    "agentName": "David Miller",
+    "agentImage": "https://i.ibb.co/LgS0P8B/image-30.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/v3q4wRn/image-10-3.png",
+    "propertyTitle": "Contemporary City Apartment",
+    "propertyLocation": "Chicago, IL",
+    "priceRange": "$900,000 - $1,000,000",
+    "verificationStatus": "verified",
+    "details": "Live in style with this contemporary city apartment. Featuring sleek design, skyline views, and proximity to cultural attractions, it's perfect for urban dwellers.",
+    "agentEmail": "agent10@example.com",
+    "agentName": "Emma Garcia",
+    "agentImage": "https://i.ibb.co/HrFSRbf/image-25.png"
+  }
+]
