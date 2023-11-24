@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import Banner from "../Components/AllPropertise/Banner";
+import Properties from "../Components/AllPropertise/Properties";
 
 const AllProperties = () => {
   return (
@@ -16,6 +17,7 @@ const AllProperties = () => {
 
       <div className="pt-16">
         <Banner />
+        <Properties />
         <Footer />
       </div>
     </div>
