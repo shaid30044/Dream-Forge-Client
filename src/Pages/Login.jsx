@@ -68,16 +68,15 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        Swal.fire({
-          title: "Success!",
-          text: "Login successfully",
-          icon: "success",
-          confirmButtonText: "Cool",
-        });
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 1000);
         console.log(res.user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Log In successfully.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         setLoginError(error.message);
@@ -87,16 +86,15 @@ const Login = () => {
   const handleGithubLogin = () => {
     githubLogin()
       .then((res) => {
-        Swal.fire({
-          title: "Success!",
-          text: "Login successfully",
-          icon: "success",
-          confirmButtonText: "Cool",
-        });
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 1000);
         console.log(res.user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Log In successfully.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         setLoginError(error.message);
@@ -122,7 +120,7 @@ const Login = () => {
         <div>
           <div className="flex justify-between items-center gap-10 pb-8">
             <h1 className="text-4xl text-white">Login</h1>
-            <Link to="/registration">
+            <Link to="/createAccount">
               <button className="btn normal-case text-lg bg-transparent hover:bg-primary border-2 border-white hover:border-primary text-white rounded-full duration-300 px-8">
                 Create Account
               </button>
@@ -138,7 +136,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
-              placeholder="Type here"
+              placeholder="Enter your email"
               className="border-2 border-white bg-transparent text-white rounded-full w-full px-6 py-3"
             />
 
