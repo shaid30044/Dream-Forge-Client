@@ -6,8 +6,15 @@ import Advertisement from "../Components/Home/Advertisement";
 import UserReview from "../Components/Home/UserReview";
 import AboutUs from "../Components/Home/AboutUs";
 import ContactUs from "../Components/Home/ContactUs";
+import { useEffect } from "react";
 
 const Home = () => {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(scrollToTop, []);
+
   return (
     <div className="relative">
       <Helmet>

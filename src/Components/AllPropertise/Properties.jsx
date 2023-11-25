@@ -59,7 +59,7 @@ const Properties = () => {
                 {/* details button */}
 
                 <Link to={`/property/${property._id}`}>
-                  <div className="tooltip tooltip-primary1" data-tip="Details">
+                  <div className="tooltip" data-tip="Details">
                     <BsInfoLg className="text-xl text-primary bg-primary1 rounded-full cursor-pointer w-7 h-7 p-1" />
                   </div>
                 </Link>

@@ -3,6 +3,7 @@ import { LuBadgeDollarSign } from "react-icons/lu";
 import { BsInfoLg } from "react-icons/bs";
 import SectionTitle from "../../Shared/SectionTitle";
 import useProperty from "../../Hooks/useProperty";
+import { Link } from "react-router-dom";
 
 const Advertisement = () => {
   const [property] = useProperty();
@@ -49,9 +50,11 @@ const Advertisement = () => {
 
                 {/* details button */}
 
-                <div className="tooltip tooltip-primary1" data-tip="Details">
-                  <BsInfoLg className="text-xl text-primary bg-primary1 rounded-full cursor-pointer w-7 h-7 p-1" />
-                </div>
+                <Link to={`/property/${property._id}`}>
+                  <div className="tooltip tooltip-primary1" data-tip="Details">
+                    <BsInfoLg className="text-xl text-primary bg-primary1 rounded-full cursor-pointer w-7 h-7 p-1" />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

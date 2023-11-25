@@ -1,21 +1,22 @@
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { useLoaderData } from "react-router-dom";
 import { GrMapLocation } from "react-icons/gr";
 import { LuBadgeDollarSign } from "react-icons/lu";
+import { GoHeartFill } from "react-icons/go";
 import PropertyReviews from "../Components/AllPropertise/PropertyReviews";
 import SectionTitle from "../Shared/SectionTitle";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
 
-  //   const scrollToTop = () => {
-  // window.scrollTo(0, 0);
-  //   };
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
-  //   useEffect(scrollToTop, []);
+  useEffect(scrollToTop, []);
 
   return (
     <div className="relative">
@@ -30,7 +31,21 @@ const PropertyDetails = () => {
       <div className="pt-16">
         <div className="font-open px-4 md:px-10 lg:px-20 pb-20 lg:pb-32">
           <div>
-            <img src={property.propertyImage} className="w-full" />
+            <div className="relative">
+              <img src={property.propertyImage} className="w-full" />
+
+              {/* wishlist button */}
+
+              <div
+                className="absolute bottom-2 md:bottom-4 right-2 md:right-4 tooltip"
+                data-tip="Add to Wishlist"
+              >
+                <button className="flex items-center gap-2 btn btn-sm md:btn-md normal-case text-white bg-transparent hover:bg-primary backdrop-blur-sm border-2 border-white hover:border-primary rounded-full duration-300 px-[5.5px] md:px-6">
+                  <span className="hidden md:block">Add to Wishlist</span>
+                  <GoHeartFill className="text-lg" />
+                </button>
+              </div>
+            </div>
 
             <div>
               <div className="flex items-center gap-4 pt-4 pb-2">
@@ -44,6 +59,7 @@ const PropertyDetails = () => {
                   </span>
                 </p>
               </div>
+
               <p className="text-dark3 leading-7">{property.details}</p>
             </div>
           </div>
