@@ -5,6 +5,8 @@ import Footer from "../Shared/Footer";
 import { useLoaderData } from "react-router-dom";
 import { GrMapLocation } from "react-icons/gr";
 import { LuBadgeDollarSign } from "react-icons/lu";
+import PropertyReviews from "../Components/AllPropertise/PropertyReviews";
+import SectionTitle from "../Shared/SectionTitle";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
@@ -46,7 +48,7 @@ const PropertyDetails = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 items-center pt-8">
+          <div className="grid md:grid-cols-2 items-center pt-10 md:pt-20">
             {/* property info */}
 
             <div className="flex flex-col items-center border-b-2 md:border-b-0 md:border-r-2 border-primary pb-10 md:py-4 mb-10 md:mb-0">
@@ -93,6 +95,13 @@ const PropertyDetails = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* reviews */}
+
+          <div className="pt-20 lg:pt-32">
+            <SectionTitle title={"Reviews"} />
+            <PropertyReviews id={property._id} />
           </div>
         </div>
 

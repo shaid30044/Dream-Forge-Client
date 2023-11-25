@@ -13,7 +13,7 @@ const UserReview = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {reviews.map((review, idx) => (
-          <div key={idx} className="">
+          <div key={idx}>
             <p className="text-2xl text-dark2">{review.propertyTitle}</p>
 
             <div className="flex items-center gap-3 pt-3 pb-2">
