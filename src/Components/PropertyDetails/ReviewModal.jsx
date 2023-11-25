@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
-const ReviewModal = ({ propertyTitle }) => {
+const ReviewModal = ({ propertyTitle, id, refetch }) => {
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
 
@@ -18,16 +18,17 @@ const ReviewModal = ({ propertyTitle }) => {
   const onSubmit = async (data) => {
     const review = {
       propertyTitle: data.title,
-      reviewerName: data.name,
-      reviewerEmail: data.email,
-      reviewerImage: data.photo,
+      reviewId: id,
+      reviewerName: user.displayName,
+      reviewerEmail: user.email,
+      reviewerImage: user.photoURL,
       reviewDescription: data.review,
     };
 
     const reviewRes = await axiosPublic.post("/review", review);
-    console.log(reviewRes.data);
 
     if (reviewRes.data.insertedId) {
+      refetch();
       reset();
       document.getElementById("review_modal").close();
 
@@ -65,40 +66,7 @@ const ReviewModal = ({ propertyTitle }) => {
                 {...register("title")}
                 defaultValue={propertyTitle}
                 readOnly
-                className="border-2 border-dark2 bg-transparent outline-none text-dark2 rounded-full w-full px-6 py-3"
-              />
-
-              {/* name */}
-
-              <p className="text-xl text-dark2 pt-6 pb-4">Name</p>
-              <input
-                type="text"
-                {...register("name")}
-                defaultValue={user.displayName}
-                readOnly
-                className="border-2 border-dark2 bg-transparent outline-none text-dark2 rounded-full w-full px-6 py-3"
-              />
-
-              {/* email */}
-
-              <p className="text-xl text-dark2 pt-6 pb-4">Email</p>
-              <input
-                type="email"
-                {...register("email")}
-                defaultValue={user.email}
-                readOnly
-                className="border-2 border-dark2 bg-transparent outline-none text-dark2 rounded-full w-full px-6 py-3"
-              />
-
-              {/* photo */}
-
-              <p className="text-xl text-dark2 pt-6 pb-4">Photo URL</p>
-              <input
-                type="text"
-                {...register("photo")}
-                defaultValue={user.photoURL}
-                readOnly
-                className="border-2 border-dark2 bg-transparent outline-none text-dark2 rounded-full w-full px-6 py-3"
+                className="border-2 border-dark3 bg-transparent outline-none text-dark2 rounded-full w-full px-6 py-3"
               />
 
               {/* description */}
@@ -109,7 +77,7 @@ const ReviewModal = ({ propertyTitle }) => {
                 rows="4"
                 {...register("review", { required: true, maxLength: 800 })}
                 placeholder="Write your review"
-                className="border-2 border-dark2 bg-transparent outline-none text-dark2 rounded-3xl w-full px-6 py-3"
+                className="border-2 border-dark3 bg-transparent outline-none text-dark2 rounded-3xl w-full px-6 py-3"
               />
               {errors.review && (
                 <span className="text-red font-medium">
@@ -127,7 +95,7 @@ const ReviewModal = ({ propertyTitle }) => {
               <input
                 type="submit"
                 value="Add Review"
-                className="btn normal-case text-lg font-semibold text-dark2 hover:text-white bg-transparent hover:bg-primary border-2 border-dark2 hover:border-primary rounded-full duration-300 px-8 mt-12"
+                className="btn normal-case text-lg font-semibold text-dark2 hover:text-white bg-transparent hover:bg-primary border-2 border-dark2 hover:border-primary rounded-full duration-300 px-8 mt-10"
               />
             </form>
 
@@ -135,7 +103,7 @@ const ReviewModal = ({ propertyTitle }) => {
 
             <button
               onClick={closeModal}
-              className="absolute bottom-6 lg:bottom-6 right-10 btn normal-case text-lg font-semibold text-dark2 hover:text-white bg-transparent hover:bg-primary border-2 border-dark2 hover:border-primary rounded-full duration-300 px-8"
+              className="absolute bottom-6 right-6 btn normal-case text-lg font-semibold text-dark2 hover:text-white bg-transparent hover:bg-primary border-2 border-dark2 hover:border-primary rounded-full duration-300 px-8"
             >
               Close
             </button>

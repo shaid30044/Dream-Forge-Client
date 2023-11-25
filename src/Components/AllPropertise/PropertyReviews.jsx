@@ -1,9 +1,6 @@
-import useReview from "../../Hooks/useReview";
 import { FaQuoteLeft } from "react-icons/fa";
 
-const PropertyReviews = ({ id }) => {
-  const [review] = useReview();
-
+const PropertyReviews = ({ id, review }) => {
   const reviews = review.filter((review) => review.reviewId === id);
 
   return (

@@ -9,9 +9,11 @@ import { GoHeartFill } from "react-icons/go";
 import PropertyReviews from "../Components/AllPropertise/PropertyReviews";
 import SectionTitle from "../Shared/SectionTitle";
 import ReviewModal from "../Components/PropertyDetails/ReviewModal";
+import useReview from "../Hooks/useReview";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
+  const [review, refetch] = useReview();
 
   // const scrollToTop = () => {
   // window.scrollTo(0, 0);
@@ -128,13 +130,18 @@ const PropertyDetails = () => {
 
           <div className="pt-20 lg:pt-32">
             <SectionTitle title={"Reviews"} />
-            <PropertyReviews id={property._id} />
+
+            <PropertyReviews id={property._id} review={review} />
           </div>
 
           {/* review modal */}
 
           <div className="pt-10">
-            <ReviewModal propertyTitle={property.propertyTitle} />
+            <ReviewModal
+              propertyTitle={property.propertyTitle}
+              id={property._id}
+              refetch={refetch}
+            />
           </div>
         </div>
 
