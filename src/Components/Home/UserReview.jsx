@@ -1,11 +1,11 @@
 import SectionTitle from "../../Shared/SectionTitle";
 import { FaQuoteLeft } from "react-icons/fa";
-import useProperty from "../../Hooks/useProperty";
+import useReview from "../../Hooks/useReview";
 
 const UserReview = () => {
-  const [property] = useProperty();
+  const [review] = useReview();
 
-  const reviews = property.slice(0, 6);
+  const reviews = review.slice(-6);
 
   return (
     <div className="font-open px-4 md:px-10 lg:px-20 pb-20 lg:pb-32">
