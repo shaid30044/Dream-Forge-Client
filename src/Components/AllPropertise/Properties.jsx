@@ -2,6 +2,7 @@ import useProperty from "../../Hooks/useProperty";
 import SectionTitle from "../../Shared/SectionTitle";
 import { useEffect, useState } from "react";
 import SearchProperties from "./SearchProperties";
+import notFound from "../../assets/NotFound.jpg";
 
 const Properties = () => {
   const [property] = useProperty();
@@ -24,7 +25,7 @@ const Properties = () => {
     setSearchResults(filteredProperties);
 
     setShowNoResults(filteredProperties.length === 0);
-  }, [search, property]);
+  }, [property, search]);
 
   return (
     <div className="font-open px-4 md:px-10 lg:px-20 py-20 lg:py-32">
@@ -35,7 +36,7 @@ const Properties = () => {
 
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="flex justify-center md:justify-start"
+          className="flex justify-center"
         >
           <input
             onChange={handleSearch}
@@ -59,8 +60,8 @@ const Properties = () => {
         {showNoResults ? (
           // not found
 
-          <div className="md:col-span-2 lg:col-span-3 h-[400px] -mb-20">
-            No Result Found
+          <div className="md:col-span-2 lg:col-span-3 lg:px-40">
+            <img src={notFound} />
           </div>
         ) : searchResults.length > 0 ? (
           // search properties
