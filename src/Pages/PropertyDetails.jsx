@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
@@ -8,15 +8,16 @@ import { LuBadgeDollarSign } from "react-icons/lu";
 import { GoHeartFill } from "react-icons/go";
 import PropertyReviews from "../Components/AllPropertise/PropertyReviews";
 import SectionTitle from "../Shared/SectionTitle";
+import ReviewModal from "../Components/PropertyDetails/ReviewModal";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
 
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+  // const scrollToTop = () => {
+  // window.scrollTo(0, 0);
+  // };
 
-  useEffect(scrollToTop, []);
+  // useEffect(scrollToTop, []);
 
   return (
     <div className="relative">
@@ -36,12 +37,22 @@ const PropertyDetails = () => {
 
               {/* wishlist button */}
 
+              {/* wishlist button for sm devices */}
+
               <div
-                className="absolute bottom-2 md:bottom-4 right-2 md:right-4 tooltip"
+                className="md:hidden absolute bottom-2 right-2 tooltip"
                 data-tip="Add to Wishlist"
               >
-                <button className="flex items-center gap-2 btn btn-sm md:btn-md normal-case text-white bg-transparent hover:bg-primary backdrop-blur-sm border-2 border-white hover:border-primary rounded-full duration-300 px-[5.5px] md:px-6">
-                  <span className="hidden md:block">Add to Wishlist</span>
+                <button className="flex items-center gap-2 btn btn-sm text-white bg-transparent hover:bg-primary backdrop-blur-sm border-2 border-white hover:border-primary rounded-full duration-300 px-[5.5px]">
+                  <GoHeartFill className="text-lg" />
+                </button>
+              </div>
+
+              {/* wishlist button for md and lg devices */}
+
+              <div className="hidden md:block absolute bottom-4 right-4">
+                <button className="flex items-center gap-2 btn normal-case text-white bg-transparent hover:bg-primary backdrop-blur-sm border-2 border-white hover:border-primary rounded-full duration-300 px-6">
+                  Add to Wishlist
                   <GoHeartFill className="text-lg" />
                 </button>
               </div>
@@ -118,6 +129,12 @@ const PropertyDetails = () => {
           <div className="pt-20 lg:pt-32">
             <SectionTitle title={"Reviews"} />
             <PropertyReviews id={property._id} />
+          </div>
+
+          {/* review modal */}
+
+          <div className="pt-10">
+            <ReviewModal propertyTitle={property.propertyTitle} />
           </div>
         </div>
 
