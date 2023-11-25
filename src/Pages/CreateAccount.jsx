@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import { updateProfile } from "firebase/auth";
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const CreateAccount = () => {
   const { createUser, googleLogin, githubLogin } = useContext(AuthContext);
@@ -16,7 +17,9 @@ const CreateAccount = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
+  const axiosPublic = useAxiosPublic();
 
   const [showPassword, setShowPassword] = useState(false);
   const [accountCreatingError, setAccountCreatingError] = useState("");
@@ -28,25 +31,34 @@ const CreateAccount = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      console.log(data.name, data.photo);
+
       updateProfile(data.name, data.photo)
-        .then((res) => {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Account created successfully.",
-            showConfirmButton: false,
-            timer: 1500,
+        .then(() => {
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            photo: data.photoURL,
+          };
+          axiosPublic.post("/user", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              reset();
+
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Account created successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate(location?.state ? location.state : "/");
+            }
           });
-          navigate("/");
         })
         .catch((error) => {
           setAccountCreatingError(error.message);
-          console.log(error);
         });
     });
   };
@@ -54,15 +66,25 @@ const CreateAccount = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        console.log(res.user);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Account created successfully.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(location?.state ? location.state : "/");
+        const userInfo = {
+          name: res.user?.displayName,
+          email: res.user?.email,
+          photo: res.user?.photoURL,
+        };
+        axiosPublic
+          .post("/user", userInfo, { withCredentials: true })
+          .then((res) => {
+            reset();
+
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Account created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(location?.state ? location.state : "/");
+          });
       })
       .catch((error) => {
         setAccountCreatingError(error.message);
@@ -72,15 +94,25 @@ const CreateAccount = () => {
   const handleGithubLogin = () => {
     githubLogin()
       .then((res) => {
-        console.log(res.user);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Account created successfully.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(location?.state ? location.state : "/");
+        const userInfo = {
+          name: res.user?.displayName,
+          email: res.user?.email,
+          photo: res.user?.photoURL,
+        };
+        axiosPublic
+          .post("/user", userInfo, { withCredentials: true })
+          .then((res) => {
+            reset();
+
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Account created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(location?.state ? location.state : "/");
+          });
       })
       .catch((error) => {
         setAccountCreatingError(error.message);

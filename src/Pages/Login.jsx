@@ -5,11 +5,13 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const Login = () => {
   const { login, googleLogin, githubLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const axiosPublic = useAxiosPublic();
 
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState("");
@@ -68,16 +70,25 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        console.log(res.user);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Log In successfully.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(location?.state ? location.state : "/");
+        const userInfo = {
+          name: res.user?.displayName,
+          email: res.user?.email,
+          photo: res.user?.photoURL,
+        };
+        axiosPublic
+          .post("/user", userInfo, { withCredentials: true })
+          .then((res) => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Account created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(location?.state ? location.state : "/");
+          });
       })
+
       .catch((error) => {
         setLoginError(error.message);
       });
@@ -86,16 +97,25 @@ const Login = () => {
   const handleGithubLogin = () => {
     githubLogin()
       .then((res) => {
-        console.log(res.user);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Log In successfully.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(location?.state ? location.state : "/");
+        const userInfo = {
+          name: res.user?.displayName,
+          email: res.user?.email,
+          photo: res.user?.photoURL,
+        };
+        axiosPublic
+          .post("/user", userInfo, { withCredentials: true })
+          .then((res) => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Account created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate(location?.state ? location.state : "/");
+          });
       })
+
       .catch((error) => {
         setLoginError(error.message);
       });
