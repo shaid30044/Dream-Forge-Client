@@ -1,4 +1,3 @@
-// import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
@@ -10,16 +9,70 @@ import PropertyReviews from "../Components/AllProperties/PropertyReviews";
 import SectionTitle from "../Shared/SectionTitle";
 import ReviewModal from "../Components/PropertyDetails/ReviewModal";
 import useReview from "../Hooks/useReview";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import useWishlist from "../Hooks/useWishlist";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
   const [review, refetch] = useReview();
+  const [wishlist, wishlistRefetch] = useWishlist();
+  const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
 
-  // const scrollToTop = () => {
-  // window.scrollTo(0, 0);
-  // };
+  const [addToWishlist, setAddToWishlist] = useState(false);
 
-  // useEffect(scrollToTop, []);
+  const isItemInWishlist = wishlist.find(
+    (wishlistProperty) =>
+      wishlistProperty.wishlistId === property._id &&
+      wishlistProperty.buyerEmail === user.email
+  );
+
+  useEffect(() => {
+    if (isItemInWishlist) {
+      setAddToWishlist(true);
+    } else {
+      setAddToWishlist(false);
+    }
+  }, [isItemInWishlist]);
+
+  console.log(addToWishlist, isItemInWishlist);
+
+  const handleAddToWishlist = async () => {
+    const wishlist = {
+      wishlistId: property._id,
+      propertyImage: property.propertyImage,
+      propertyTitle: property.propertyTitle,
+      propertyLocation: property.propertyLocation,
+      agentName: property.agentName,
+      agentImage: property.agentImage,
+      verificationStatus: property.verificationStatus,
+      priceRange: property.priceRange,
+      buyerEmail: user.email,
+      buyerName: user.displayName,
+    };
+
+    const wishlistRes = await axiosPublic.post("/wishlist", wishlist);
+    if (wishlistRes.data.insertedId) {
+      wishlistRefetch();
+
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "This property has been added to your wishlist successfully.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(scrollToTop, []);
 
   return (
     <div className="relative">
@@ -45,7 +98,14 @@ const PropertyDetails = () => {
                 className="md:hidden absolute bottom-2 right-2 tooltip"
                 data-tip="Add to Wishlist"
               >
-                <button className="flex items-center gap-2 btn btn-sm text-white bg-transparent hover:bg-primary backdrop-blur-sm border-2 border-white hover:border-primary rounded-full duration-300 px-[5.5px]">
+                <button
+                  onClick={handleAddToWishlist}
+                  className={`flex items-center gap-2 btn btn-sm text-${
+                    addToWishlist ? "primary" : "white"
+                  } bg-transparent hover:bg-${
+                    addToWishlist ? "white" : "primary"
+                  } backdrop-blur-sm border-2 border-white hover:border-primary rounded-full duration-300 px-[5.5px]`}
+                >
                   <GoHeartFill className="text-lg" />
                 </button>
               </div>
@@ -53,9 +113,18 @@ const PropertyDetails = () => {
               {/* wishlist button for md and lg devices */}
 
               <div className="hidden md:block absolute bottom-4 right-4">
-                <button className="flex items-center gap-2 btn normal-case text-white bg-transparent hover:bg-primary backdrop-blur-sm border-2 border-white hover:border-primary rounded-full duration-300 px-6">
+                <button
+                  onClick={handleAddToWishlist}
+                  className="flex items-center gap-2 btn normal-case text-white bg-transparent hover:bg-primary backdrop-blur-sm border-2 border-white hover:border-primary rounded-full duration-300 px-6"
+                >
                   Add to Wishlist
-                  <GoHeartFill className="text-lg" />
+                  <span>
+                    <GoHeartFill
+                      className={`text-${
+                        addToWishlist ? "primary" : "white"
+                      } hover:bg-${addToWishlist ? "white" : "primary"}`}
+                    />
+                  </span>
                 </button>
               </div>
             </div>
