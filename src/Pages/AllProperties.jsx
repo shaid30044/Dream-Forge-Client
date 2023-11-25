@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
-import Banner from "../Components/AllPropertise/Banner";
-import Properties from "../Components/AllPropertise/Properties";
+import Banner from "../Components/AllProperties/Banner";
+import Properties from "../Components/AllProperties/Properties";
 
 const AllProperties = () => {
   return (

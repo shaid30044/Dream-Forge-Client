@@ -6,7 +6,7 @@ import { useLoaderData } from "react-router-dom";
 import { GrMapLocation } from "react-icons/gr";
 import { LuBadgeDollarSign } from "react-icons/lu";
 import { GoHeartFill } from "react-icons/go";
-import PropertyReviews from "../Components/AllPropertise/PropertyReviews";
+import PropertyReviews from "../Components/AllProperties/PropertyReviews";
 import SectionTitle from "../Shared/SectionTitle";
 import ReviewModal from "../Components/PropertyDetails/ReviewModal";
 import useReview from "../Hooks/useReview";
