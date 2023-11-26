@@ -18,11 +18,13 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import bg from "../../assets/DashboardSideBar.jpg";
 import useWishlist from "../../Hooks/useWishlist";
 import useProperty from "../../Hooks/useProperty";
+import useBought from "../../Hooks/useBought";
 
 const DashboardSideBar = () => {
   const [review] = useReview();
   const [wishlist] = useWishlist();
   const [property] = useProperty();
+  const [bought] = useBought();
   const [isAgent] = useAgent();
   const [isAdmin] = useAdmin();
   const { user } = useContext(AuthContext);
@@ -45,6 +47,10 @@ const DashboardSideBar = () => {
     (property) => property.agentEmail === user?.email
   );
 
+  const boughtCount = bought.filter(
+    (bought) => bought.buyerEmail === user?.email
+  );
+
   const users = [
     {
       name: "My Profile",
@@ -61,6 +67,7 @@ const DashboardSideBar = () => {
       name: "Property Bought",
       path: "/dashboard/propertyBought",
       icon: TbMoneybag,
+      count: boughtCount.length,
     },
     {
       name: "My Reviews",

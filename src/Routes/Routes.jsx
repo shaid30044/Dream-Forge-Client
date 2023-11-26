@@ -8,12 +8,10 @@ import AllProperties from "../Pages/AllProperties";
 import PropertyDetails from "../Pages/PropertyDetails";
 import ErrorPage from "../Pages/ErrorPage";
 import Dashboard from "../Pages/Dashboard";
-import AgentProfile from "../Components/AgentDashboard/AgentProfile";
-import AdminProfile from "../Components/AdminDashboard/AdminProfile";
-import MyProfile from "../Components/UserDashboard/MyProfile";
 import Wishlist from "../Pages/Dashboard/UserDashboard/Wishlist";
 import Offer from "../Pages/Dashboard/UserDashboard/Offer";
 import PropertyBought from "../Pages/Dashboard/UserDashboard/PropertyBought";
+import MyProfile from "../Pages/Dashboard/UserDashboard/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -45,41 +43,51 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
-        children: [
-          //  user dashboard
+        element: (
+          <PrivateRoutes>
+            <Dashboard />
+          </PrivateRoutes>
+        ),
+      },
 
-          {
-            path: "myProfile",
-            element: <MyProfile />,
-          },
-          {
-            path: "wishlist",
-            element: <Wishlist />,
-          },
-          {
-            path: "propertyBought",
-            element: <PropertyBought />,
-          },
+      //  user dashboard
 
-          // agent dashboard
-
-          {
-            path: "agentProfile",
-            element: <AgentProfile />,
-          },
-
-          // admin dashboard
-
-          {
-            path: "adminProfile",
-            element: <AdminProfile />,
-          },
-        ],
+      {
+        path: "/dashboard/myProfile",
+        element: (
+          <PrivateRoutes>
+            <MyProfile />
+          </PrivateRoutes>
+        ),
       },
       {
+        path: "/dashboard/wishlist",
+        element: (
+          <PrivateRoutes>
+            <Wishlist />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/propertyBought",
+        element: (
+          <PrivateRoutes>
+            <PropertyBought />
+          </PrivateRoutes>
+        ),
+      },
+
+      // agent dashboard
+
+      // admin dashboard
+
+      {
         path: "offer/:id",
-        element: <Offer />,
+        element: (
+          <PrivateRoutes>
+            <Offer />
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/wishlist/${params.id}`),
       },

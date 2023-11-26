@@ -1,4 +1,5 @@
 import DashboardSideBar from "../Shared/Dashboard/DashboardSideBar";
+import PropertyBought from "./Dashboard/UserDashboard/PropertyBought";
 import Wishlist from "./Dashboard/UserDashboard/Wishlist";
 
 const Dashboard = () => {
@@ -9,6 +10,7 @@ const Dashboard = () => {
       </div>
 
       <Wishlist />
+      <PropertyBought />
     </div>
   );
 };

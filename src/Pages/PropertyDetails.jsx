@@ -38,8 +38,6 @@ const PropertyDetails = () => {
     }
   }, [isItemInWishlist]);
 
-  console.log(addToWishlist, isItemInWishlist);
-
   const handleAddToWishlist = async () => {
     const wishlist = {
       wishlistId: property._id,

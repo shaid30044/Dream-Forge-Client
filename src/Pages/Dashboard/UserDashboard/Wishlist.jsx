@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import notFound from "../../../assets/NotFound.jpg";
+import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
 
 const Wishlist = () => {
   const [wishlist, wishlistRefetch] = useWishlist();
@@ -50,6 +51,10 @@ const Wishlist = () => {
       <Helmet>
         <title>Dream Forge | Wishlist</title>
       </Helmet>
+
+      <div className="fixed z-50">
+        <DashboardSideBar />
+      </div>
 
       {wishlist.length === 0 ? (
         // not found
