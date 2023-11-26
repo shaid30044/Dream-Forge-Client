@@ -97,6 +97,7 @@ const Offer = () => {
       <Helmet>
         <title>Dream Forge | Make An Offer</title>
       </Helmet>
+
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
       <div className="absolute grid lg:grid-cols-2 justify-center items-center gap-10 md:gap-20 overflow-auto backdrop-blur-sm h-screen px-4 md:px-10 lg:px-40 py-20 lg:py-32">
