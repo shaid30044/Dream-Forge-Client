@@ -14,7 +14,7 @@ const SearchProperties = ({ property }) => {
       </div>
 
       <div>
-        {/* property location */}
+        {/* property title */}
 
         <div className="flex justify-between items-center pt-3 pb-1">
           <h3 className="text-xl font-medium text-dark2">
@@ -43,7 +43,9 @@ const SearchProperties = ({ property }) => {
 
             <div className="flex items-center gap-3">
               <LuBadgeDollarSign className="text-xl text-primary" />
-              <p className="text-dark3">{property.priceRange}</p>
+              <p className="text-dark3">
+                {property.minPrice} - {property.maxPrice}
+              </p>
             </div>
           </div>
 

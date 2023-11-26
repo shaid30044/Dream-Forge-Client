@@ -44,7 +44,9 @@ const Advertisement = () => {
 
                   <div className="flex items-center gap-3">
                     <LuBadgeDollarSign className="text-xl text-primary" />
-                    <p className="text-dark3">{property.priceRange}</p>
+                    <p className="text-dark3">
+                      {property.minPrice} - {property.maxPrice}
+                    </p>
                   </div>
                 </div>
 

@@ -6,9 +6,9 @@ import notFound from "../../assets/NotFound.jpg";
 import Select from "react-select";
 
 const options = [
+  { value: "default", label: "Default" },
   { value: "highToLow", label: "$High - $Low" },
   { value: "lowToHigh", label: "$Low - $High" },
-  { value: "default", label: "Default" },
 ];
 
 const Properties = () => {
@@ -17,44 +17,39 @@ const Properties = () => {
   const [search, setSearch] = useState("");
   const [showNoResults, setShowNoResults] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  const [sortingOption, setSortingOption] = useState(options[2]);
-
-  const handleSearch = (e) => {
-    const search = e.target.value.trim().toLowerCase();
-
-    setSearch(search);
-  };
-
-  const sortData = (data, option) => {
-    const sortedData = [...data];
-
-    if (option.value === "highToLow") {
-      sortedData.sort((a, b) => {
-        const priceA = parseInt(a.priceRange.replace(/\D/g, ""), 10);
-        const priceB = parseInt(b.priceRange.replace(/\D/g, ""), 10);
-        return priceB - priceA;
-      });
-    } else if (option.value === "lowToHigh") {
-      sortedData.sort((a, b) => {
-        const priceA = parseInt(a.priceRange.replace(/\D/g, ""), 10);
-        const priceB = parseInt(b.priceRange.replace(/\D/g, ""), 10);
-        return priceA - priceB;
-      });
-    }
-
-    return sortedData;
-  };
+  const [sortingOption, setSortingOption] = useState(options[0]);
 
   useEffect(() => {
-    const filteredProperties = property.filter((property) =>
-      property.propertyTitle.toLowerCase().includes(search.toLowerCase())
-    );
+    let sortedProperties = [...property];
 
-    const sortedProperties = sortData(filteredProperties, sortingOption);
+    if (search) {
+      sortedProperties = sortedProperties.filter((prop) =>
+        prop.propertyTitle.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    if (sortingOption.value === "highToLow") {
+      sortedProperties.sort(
+        (a, b) =>
+          parseFloat(b.maxPrice.replace(/[$,]/g, "")) -
+          parseFloat(a.maxPrice.replace(/[$,]/g, ""))
+      );
+    } else if (sortingOption.value === "lowToHigh") {
+      sortedProperties.sort(
+        (a, b) =>
+          parseFloat(a.minPrice.replace(/[$,]/g, "")) -
+          parseFloat(b.minPrice.replace(/[$,]/g, ""))
+      );
+    }
 
     setSearchResults(sortedProperties);
     setShowNoResults(sortedProperties.length === 0);
   }, [property, search, sortingOption]);
+
+  const handleSearch = (e) => {
+    const search = e.target.value.trim().toLowerCase();
+    setSearch(search);
+  };
 
   const handleSortingChange = (selectedOption) => {
     setSortingOption(selectedOption);

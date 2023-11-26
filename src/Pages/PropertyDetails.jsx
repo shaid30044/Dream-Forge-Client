@@ -49,12 +49,14 @@ const PropertyDetails = () => {
       agentName: property.agentName,
       agentImage: property.agentImage,
       verificationStatus: property.verificationStatus,
-      priceRange: property.priceRange,
-      buyerEmail: user.email,
-      buyerName: user.displayName,
+      minPrice: property.minPrice,
+      maxPrice: property.maxPrice,
+      buyerEmail: user?.email,
+      buyerName: user?.displayName,
     };
 
     const wishlistRes = await axiosPublic.post("/wishlist", wishlist);
+
     if (wishlistRes.data.insertedId) {
       wishlistRefetch();
 
@@ -166,7 +168,9 @@ const PropertyDetails = () => {
 
                 <div className="flex items-center gap-3">
                   <LuBadgeDollarSign className="text-xl text-primary" />
-                  <p className="text-dark3">{property.priceRange}</p>
+                  <p className="text-dark3">
+                    {property.minPrice} - {property.maxPrice}
+                  </p>
                 </div>
               </div>
             </div>

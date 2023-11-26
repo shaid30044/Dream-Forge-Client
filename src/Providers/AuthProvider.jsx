@@ -12,7 +12,7 @@ import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext(null) || {};
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
@@ -36,9 +36,7 @@ const AuthProvider = ({ children }) => {
           .post("http://localhost:5000/jwt", loggedUser, {
             withCredentials: true,
           })
-          .then((res) => {
-            console.log(res, res.data);
-          });
+          .then();
       } else {
         axiosPublic
           .post("http://localhost:5000/logout", loggedUser, {

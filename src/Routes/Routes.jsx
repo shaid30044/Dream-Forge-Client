@@ -12,6 +12,7 @@ import AgentProfile from "../Components/AgentDashboard/AgentProfile";
 import AdminProfile from "../Components/AdminDashboard/AdminProfile";
 import MyProfile from "../Components/UserDashboard/MyProfile";
 import Wishlist from "../Pages/Dashboard/UserDashboard/Wishlist";
+import Offer from "../Pages/Dashboard/UserDashboard/Offer";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,12 @@ const router = createBrowserRouter([
             element: <AdminProfile />,
           },
         ],
+      },
+      {
+        path: "offer/:id",
+        element: <Offer />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/wishlist/${params.id}`),
       },
       {
         path: "/login",

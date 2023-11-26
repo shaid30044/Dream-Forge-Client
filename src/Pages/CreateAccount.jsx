@@ -126,7 +126,7 @@ const CreateAccount = () => {
   return (
     <div
       style={backgroundImageStyle}
-      className="relative font-open bg-cover bg-fixed h-[1200px] md:h-[1400px] lg:h-[1000px]"
+      className="relative font-open bg-cover bg-fixed h-[1000px]"
     >
       <Helmet>
         <title>Dream Forge | Create Account</title>
@@ -134,7 +134,7 @@ const CreateAccount = () => {
 
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
-      <div className="absolute grid lg:grid-cols-2 justify-center items-center gap-10 md:gap-20 backdrop-blur-sm h-[1200px] md:h-[1400px] lg:h-[1000px] px-4 md:px-10 lg:px-40 py-20 lg:py-32">
+      <div className="absolute grid lg:grid-cols-2 justify-center items-center gap-10 md:gap-20 overflow-auto backdrop-blur-sm h-[1000px] px-4 md:px-10 lg:px-40 py-20 lg:py-32">
         <img
           src={img}
           className="flex justify-center items-center object-cover rounded-3xl h-full"
