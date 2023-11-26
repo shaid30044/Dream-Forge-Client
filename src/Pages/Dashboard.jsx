@@ -1,11 +1,9 @@
-import { Helmet } from "react-helmet-async";
+import DashboardSideBar from "../Shared/Dashboard/DashboardSideBar";
 
 const Dashboard = () => {
   return (
-    <div className="relative">
-      <Helmet>
-        <title>Dream Forge | Dashboard</title>
-      </Helmet>
+    <div>
+      <DashboardSideBar />
     </div>
   );
 };

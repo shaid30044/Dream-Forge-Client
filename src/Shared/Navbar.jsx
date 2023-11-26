@@ -30,10 +30,10 @@ const Navbar = () => {
     {
       name: "Dashboard",
       path: isAgent
-        ? "/dashboard/agentHome"
+        ? "/dashboard/agentProfile"
         : isAdmin
-        ? "/dashboard/adminHome"
-        : "/dashboard/userHome",
+        ? "/dashboard/adminProfile"
+        : "/dashboard/myProfile",
     },
   ];
 

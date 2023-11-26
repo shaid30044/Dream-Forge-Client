@@ -8,6 +8,9 @@ import AllProperties from "../Pages/AllProperties";
 import PropertyDetails from "../Pages/PropertyDetails";
 import ErrorPage from "../Pages/ErrorPage";
 import Dashboard from "../Pages/Dashboard";
+import AgentProfile from "../Components/AgentDashboard/AgentProfile";
+import AdminProfile from "../Components/AdminDashboard/AdminProfile";
+import MyProfile from "../Components/UserDashboard/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +43,28 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+        children: [
+          //  user dashboard
+
+          {
+            path: "myProfile",
+            element: <MyProfile />,
+          },
+
+          // agent dashboard
+
+          {
+            path: "agentProfile",
+            element: <AgentProfile />,
+          },
+
+          // admin dashboard
+
+          {
+            path: "adminProfile",
+            element: <AdminProfile />,
+          },
+        ],
       },
       {
         path: "/login",
