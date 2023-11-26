@@ -35,10 +35,11 @@ const Login = () => {
           navigate(location?.state ? location.state : "/");
         }, 1000);
         Swal.fire({
-          title: "Success!",
-          text: "Sign In successfully",
+          position: "center",
           icon: "success",
-          confirmButtonText: "Close",
+          title: "Login successfully.",
+          showConfirmButton: false,
+          timer: 1500,
         });
       })
       .catch((error) => {
@@ -81,7 +82,7 @@ const Login = () => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Account created successfully.",
+              title: "Login successfully.",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -108,7 +109,7 @@ const Login = () => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Account created successfully.",
+              title: "Login successfully.",
               showConfirmButton: false,
               timer: 1500,
             });

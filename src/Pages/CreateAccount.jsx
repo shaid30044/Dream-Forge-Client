@@ -40,22 +40,24 @@ const CreateAccount = () => {
           const userInfo = {
             name: data.name,
             email: data.email,
-            photo: data.photoURL,
+            photo: data.photo,
           };
-          axiosPublic.post("/user", userInfo).then((res) => {
-            if (res.data.insertedId) {
-              reset();
+          axiosPublic
+            .post("/user", userInfo, { withCredentials: true })
+            .then((res) => {
+              if (res.data.insertedId) {
+                reset();
 
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Account created successfully.",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-              navigate(location?.state ? location.state : "/");
-            }
-          });
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Account created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate(location?.state ? location.state : "/");
+              }
+            });
         })
         .catch((error) => {
           setAccountCreatingError(error.message);
@@ -75,6 +77,8 @@ const CreateAccount = () => {
           .post("/user", userInfo, { withCredentials: true })
           .then((res) => {
             reset();
+
+            console.log(res.user);
 
             Swal.fire({
               position: "center",

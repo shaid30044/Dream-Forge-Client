@@ -7,9 +7,13 @@ import logo from "../assets/logo.png";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { BiLogInCircle } from "react-icons/bi";
+import useAdmin from "../Hooks/useAdmin";
+import useAgent from "../Hooks/useAgent";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const isAgent = useAgent();
+  const isAdmin = useAdmin();
 
   const [toggle, setToggle] = useState(false);
   const [showUserInfo, setShowUserInfo] = useState(false);
@@ -25,7 +29,11 @@ const Navbar = () => {
     },
     {
       name: "Dashboard",
-      path: "/dashboard",
+      path: isAgent
+        ? "/dashboard/agentHome"
+        : isAdmin
+        ? "/dashboard/adminHome"
+        : "/dashboard/userHome",
     },
   ];
 
