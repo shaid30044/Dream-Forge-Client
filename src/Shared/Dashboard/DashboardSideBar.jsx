@@ -37,6 +37,10 @@ const DashboardSideBar = () => {
     (review) => review.reviewerEmail === user?.email
   );
 
+  const wishlistCount = wishlist.filter(
+    (wishlist) => wishlist.buyerEmail === user?.email
+  );
+
   const propertyCount = property.filter(
     (property) => property.agentEmail === user?.email
   );
@@ -51,7 +55,7 @@ const DashboardSideBar = () => {
       name: "Wishlist",
       path: "/dashboard/wishlist",
       icon: GoHeart,
-      count: wishlist.length,
+      count: wishlistCount.length,
     },
     {
       name: "Property Bought",

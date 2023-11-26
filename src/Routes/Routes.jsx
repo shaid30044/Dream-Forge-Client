@@ -11,6 +11,7 @@ import Dashboard from "../Pages/Dashboard";
 import AgentProfile from "../Components/AgentDashboard/AgentProfile";
 import AdminProfile from "../Components/AdminDashboard/AdminProfile";
 import MyProfile from "../Components/UserDashboard/MyProfile";
+import Wishlist from "../Pages/Dashboard/UserDashboard/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
           {
             path: "myProfile",
             element: <MyProfile />,
+          },
+          {
+            path: "wishlist",
+            element: <Wishlist />,
           },
 
           // agent dashboard

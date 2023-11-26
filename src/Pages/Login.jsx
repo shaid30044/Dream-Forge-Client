@@ -116,7 +116,6 @@ const Login = () => {
             navigate(location?.state ? location.state : "/");
           });
       })
-
       .catch((error) => {
         setLoginError(error.message);
       });
