@@ -14,7 +14,7 @@ const AgentProfile = () => {
   return (
     <div>
       <Helmet>
-        <title>Dream Forge | My Profile</title>
+        <title>Dream Forge | Agent Profile</title>
       </Helmet>
 
       <div className="fixed z-50">
