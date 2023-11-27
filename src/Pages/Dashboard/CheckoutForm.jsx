@@ -95,7 +95,14 @@ const CheckoutForm = ({ amount }) => {
 
         const res = await axiosPublic.post("/payments", payment);
 
-        const result = await axiosPublic.patch(`/bought/${amount._id}`);
+        const offerStatus = {
+          status: "bought",
+        };
+
+        const result = await axiosPublic.patch(
+          `/bought/${amount._id}`,
+          offerStatus
+        );
 
         if (res.data?.insertedId) {
           Swal.fire({

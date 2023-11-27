@@ -17,6 +17,7 @@ import MyReviews from "../Pages/Dashboard/UserDashboard/MyReviews";
 import AgentProfile from "../Pages/Dashboard/AgentDashboard/AgentProfile";
 import MyAddedProperties from "../Pages/Dashboard/AgentDashboard/MyAddedProperties";
 import UpdateProperty from "../Pages/Dashboard/UpdateProperty";
+import RequestedProperties from "../Pages/Dashboard/AgentDashboard/RequestedProperties";
 
 const router = createBrowserRouter([
   {
@@ -105,6 +106,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <MyAddedProperties />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/requestedProperties",
+        element: (
+          <PrivateRoutes>
+            <RequestedProperties />
           </PrivateRoutes>
         ),
       },

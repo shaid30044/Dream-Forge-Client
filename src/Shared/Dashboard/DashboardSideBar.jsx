@@ -51,6 +51,14 @@ const DashboardSideBar = () => {
     (bought) => bought.buyerEmail === user?.email
   );
 
+  const requestCount = bought.filter(
+    (request) => request.agentEmail === user?.email
+  );
+
+  const soldCount = bought.filter(
+    (sold) => sold.agentEmail === user?.email && sold.status === "bought"
+  );
+
   const users = [
     {
       name: "My Profile",
@@ -93,11 +101,13 @@ const DashboardSideBar = () => {
       name: "My Sold Properties",
       path: "/dashboard/mySoldProperties",
       icon: MdOutlineSell,
+      count: soldCount.length,
     },
     {
       name: "Requested Properties",
       path: "/dashboard/requestedProperties",
       icon: VscGitPullRequestGoToChanges,
+      count: requestCount.length,
     },
   ];
 
