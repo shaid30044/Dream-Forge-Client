@@ -59,13 +59,15 @@ const PropertyBought = () => {
                     <p>
                       <span
                         className={`text-xs font-medium text-${
-                          item.status === "pending"
+                          item.status === "pending" ||
+                          item.status === "rejected"
                             ? "primary"
                             : item.status === "accepted"
                             ? "[#70c641]"
                             : "dark1"
                         } bg-${
-                          item.status === "pending"
+                          item.status === "pending" ||
+                          item.status === "rejected"
                             ? "primary1"
                             : item.status === "accepted"
                             ? "[#f3ffec]"

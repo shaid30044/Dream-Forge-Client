@@ -19,12 +19,14 @@ import bg from "../../assets/DashboardSideBar.jpg";
 import useWishlist from "../../Hooks/useWishlist";
 import useProperty from "../../Hooks/useProperty";
 import useBought from "../../Hooks/useBought";
+import useUser from "../../Hooks/useUser";
 
 const DashboardSideBar = () => {
   const [review] = useReview();
   const [wishlist] = useWishlist();
   const [property] = useProperty();
   const [bought] = useBought();
+  const [users] = useUser();
   const [isAgent] = useAgent();
   const [isAdmin] = useAdmin();
   const { user } = useContext(AuthContext);
@@ -59,7 +61,7 @@ const DashboardSideBar = () => {
     (sold) => sold.agentEmail === user?.email && sold.status === "bought"
   );
 
-  const users = [
+  const userPath = [
     {
       name: "My Profile",
       path: "/dashboard/myProfile",
@@ -121,16 +123,19 @@ const DashboardSideBar = () => {
       name: "Manage Properties",
       path: "/dashboard/manageProperties",
       icon: BsBuildingGear,
+      count: property.length,
     },
     {
       name: "Manage Users",
       path: "/dashboard/manageUsers",
       icon: TbUserCog,
+      count: users.length,
     },
     {
       name: "Manage Reviews",
       path: "/dashboard/manageReviews",
       icon: MdOutlineManageHistory,
+      count: review.length,
     },
   ];
 
@@ -234,7 +239,7 @@ const DashboardSideBar = () => {
                   // user panel
 
                   <>
-                    {users.map((user, idx) => (
+                    {userPath.map((user, idx) => (
                       <div key={idx}>
                         <NavLink
                           to={user.path}
@@ -362,7 +367,7 @@ const DashboardSideBar = () => {
               // user panel
 
               <>
-                {users.map((user, idx) => (
+                {userPath.map((user, idx) => (
                   <div key={idx}>
                     <NavLink
                       to={user.path}
