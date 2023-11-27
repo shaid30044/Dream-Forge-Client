@@ -19,6 +19,7 @@ import MyAddedProperties from "../Pages/Dashboard/AgentDashboard/MyAddedProperti
 import UpdateProperty from "../Pages/Dashboard/UpdateProperty";
 import RequestedProperties from "../Pages/Dashboard/AgentDashboard/RequestedProperties";
 import MySoldProperties from "../Pages/Dashboard/AgentDashboard/MySoldProperties";
+import ManageProperties from "../Pages/Dashboard/AdminDashboard/ManageProperties";
 
 const router = createBrowserRouter([
   {
@@ -128,6 +129,15 @@ const router = createBrowserRouter([
       },
 
       // admin dashboard
+
+      {
+        path: "/dashboard/manageProperties",
+        element: (
+          <PrivateRoutes>
+            <ManageProperties />
+          </PrivateRoutes>
+        ),
+      },
 
       {
         path: "offer/:id",
