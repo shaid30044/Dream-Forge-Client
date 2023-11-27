@@ -9,11 +9,15 @@ import Swal from "sweetalert2";
 import { BiLogInCircle } from "react-icons/bi";
 import useAdmin from "../Hooks/useAdmin";
 import useAgent from "../Hooks/useAgent";
+import useUser from "../Hooks/useUser";
 
 const Navbar = () => {
+  const [users] = useUser();
   const { user, logOut } = useContext(AuthContext);
   const isAgent = useAgent();
   const isAdmin = useAdmin();
+
+  const userInfo = users.find((userInfo) => userInfo.email === user?.email);
 
   const [toggle, setToggle] = useState(false);
   const [showUserInfo, setShowUserInfo] = useState(false);
@@ -166,8 +170,8 @@ const Navbar = () => {
               className="cursor-pointer pt-2"
             >
               <img
-                src={user?.photoURL}
-                alt={`${user.displayName}'s profile`}
+                src={userInfo?.photo}
+                alt={`${userInfo?.name}'s profile`}
                 className="w-8 h-8 rounded-full"
               />
             </button>
@@ -190,8 +194,8 @@ const Navbar = () => {
                 {/* user name and email */}
 
                 <div className="border-b-2 border-blue1 mb-2 w-52">
-                  <p className="text-center py-4">{user?.displayName}</p>
-                  <p className="text-center pb-4">{user?.email}</p>
+                  <p className="text-center py-4">{userInfo?.name}</p>
+                  <p className="text-center pb-4">{userInfo?.email}</p>
                 </div>
 
                 {/* profile and dashboard */}

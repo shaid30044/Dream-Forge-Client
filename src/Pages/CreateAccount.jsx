@@ -35,29 +35,30 @@ const CreateAccount = () => {
       const loggedUser = result.user;
       console.log(loggedUser);
 
-      updateProfile(data.name, data.photo)
+      updateProfile(data.name, data.photoURL)
         .then(() => {
           const userInfo = {
             name: data.name,
             email: data.email,
-            photo: data.photo,
+            photo: data.photoURL,
           };
-          axiosPublic
-            .post("/user", userInfo, { withCredentials: true })
-            .then((res) => {
-              if (res.data.insertedId) {
-                reset();
 
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Account created successfully.",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate(location?.state ? location.state : "/");
-              }
-            });
+          console.log(userInfo);
+
+          axiosPublic.post("/user", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              reset();
+
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Account created successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate(location?.state ? location.state : "/");
+            }
+          });
         })
         .catch((error) => {
           setAccountCreatingError(error.message);
@@ -225,11 +226,11 @@ const CreateAccount = () => {
             <p className="text-xl text-white pt-6 pb-4">Photo URL</p>
             <input
               type="text"
-              {...register("photo", { required: true })}
+              {...register("photoURL", { required: true })}
               placeholder="Enter your photo url"
               className="border-2 border-white bg-transparent outline-none text-white rounded-full w-full px-6 py-3"
             />
-            {errors.photo && (
+            {errors.photoURL && (
               <span className="text-red font-medium">
                 Photo URL is required
               </span>

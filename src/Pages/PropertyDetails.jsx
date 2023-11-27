@@ -14,13 +14,17 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useWishlist from "../Hooks/useWishlist";
+import useUser from "../Hooks/useUser";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
   const [review, refetch] = useReview();
   const [wishlist, wishlistRefetch] = useWishlist();
+  const [users] = useUser();
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
+
+  const userInfo = users.find((userInfo) => userInfo.email === user?.email);
 
   const [addToWishlist, setAddToWishlist] = useState(false);
 
@@ -44,13 +48,14 @@ const PropertyDetails = () => {
       propertyImage: property.propertyImage,
       propertyTitle: property.propertyTitle,
       propertyLocation: property.propertyLocation,
+      agentEmail: property.agentEmail,
       agentName: property.agentName,
       agentImage: property.agentImage,
       verificationStatus: property.verificationStatus,
       minPrice: property.minPrice,
       maxPrice: property.maxPrice,
-      buyerEmail: user?.email,
-      buyerName: user?.displayName,
+      buyerEmail: userInfo?.email,
+      buyerName: userInfo?.name,
     };
 
     const wishlistRes = await axiosPublic.post("/wishlist", wishlist);

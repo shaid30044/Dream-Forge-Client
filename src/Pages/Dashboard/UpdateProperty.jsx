@@ -28,8 +28,8 @@ const UpdateProperty = () => {
       propertyImage: data.propertyImage || property.propertyImage,
       propertyTitle: data.propertyTitle || property.propertyTitle,
       propertyLocation: data.propertyLocation || property.propertyLocation,
-      minPrice: `$${data.minPrice || property.minPrice}`,
-      maxPrice: `$${data.maxPrice || property.maxPrice}`,
+      minPrice: `$${data.minPrice}` || property.minPrice,
+      maxPrice: `$${data.maxPrice}` || property.maxPrice,
       agentEmail: data.agentEmail || property.agentEmail,
       agentName: data.agentName,
     };

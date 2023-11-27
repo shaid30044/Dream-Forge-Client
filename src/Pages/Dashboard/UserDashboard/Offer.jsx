@@ -1,15 +1,19 @@
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import useUser from "../../../Hooks/useUser";
 
 const Offer = () => {
   const property = useLoaderData();
   const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
+  const [users] = useUser();
   const navigate = useNavigate();
   const {
     register,
@@ -17,6 +21,8 @@ const Offer = () => {
     formState: { errors },
     reset,
   } = useForm();
+
+  const userInfo = users.find((userInfo) => userInfo.email === user?.email);
 
   const [startDate, setStartDate] = useState(new Date());
   const [amountError, setAmountError] = useState("");
@@ -34,16 +40,15 @@ const Offer = () => {
       second: "2-digit",
     });
 
-    const amountString = `$${data.amount}`;
-
     const offerInfo = {
       propertyImage: property.propertyImage,
       propertyTitle: data.title,
       propertyLocation: data.location,
+      agentEmail: property.agentEmail,
       agentName: data.agentName,
-      offeredAmount: amountString,
-      buyerEmail: data.buyerEmail,
-      buyerName: data.buyerName,
+      offeredAmount: `$${data.amount}`,
+      buyerEmail: userInfo?.email,
+      buyerName: userInfo?.name,
       buyingDate: formattedDate,
       status: "pending",
     };
