@@ -210,6 +210,7 @@ const PropertyDetails = () => {
           <div className="pt-10">
             <ReviewModal
               propertyTitle={property.propertyTitle}
+              agentName={property.agentName}
               id={property._id}
               refetch={refetch}
             />

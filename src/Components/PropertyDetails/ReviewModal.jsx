@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
-const ReviewModal = ({ propertyTitle, id, refetch }) => {
+const ReviewModal = ({ propertyTitle, agentName, id, refetch }) => {
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
 
@@ -16,6 +16,20 @@ const ReviewModal = ({ propertyTitle, id, refetch }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    const date = new Date();
+    const formattedNewDate = new Intl.DateTimeFormat("en-US", {
+      weekday: "short",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: false,
+    })
+      .format(date)
+      .replace(/(\d+)\/(\d+)\/(\d+),/, "$3/$2/$1");
+
     const review = {
       propertyTitle: data.title,
       reviewId: id,
@@ -23,6 +37,8 @@ const ReviewModal = ({ propertyTitle, id, refetch }) => {
       reviewerEmail: user.email,
       reviewerImage: user.photoURL,
       reviewDescription: data.review,
+      agentName: agentName,
+      reviewTime: formattedNewDate,
     };
 
     const reviewRes = await axiosPublic.post("/review", review);
