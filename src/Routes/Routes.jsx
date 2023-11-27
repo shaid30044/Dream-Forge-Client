@@ -13,6 +13,7 @@ import Offer from "../Pages/Dashboard/UserDashboard/Offer";
 import PropertyBought from "../Pages/Dashboard/UserDashboard/PropertyBought";
 import MyProfile from "../Pages/Dashboard/UserDashboard/MyProfile";
 import Payment from "../Pages/Dashboard/Payment";
+import MyReviews from "../Pages/Dashboard/UserDashboard/MyReviews";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <PropertyBought />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/myReviews",
+        element: (
+          <PrivateRoutes>
+            <MyReviews />
           </PrivateRoutes>
         ),
       },

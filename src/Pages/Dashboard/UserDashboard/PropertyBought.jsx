@@ -105,12 +105,16 @@ const PropertyBought = () => {
 
                       {/* transaction id */}
 
-                      <div className="flex items-center gap-3 font-medium text-primary pb-1">
-                        Transaction Id:
-                        <p className="text-dark3 font-normal">
-                          {item.offeredAmount}
-                        </p>
-                      </div>
+                      {item.status === "bought" ? (
+                        <div className="flex items-center gap-3 font-medium text-primary pb-1">
+                          Transaction Id:
+                          <p className="text-dark3 font-normal">
+                            {item.offeredAmount}
+                          </p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
                     </div>
 
                     {/* details button */}
