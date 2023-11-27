@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const RequestedProperties = () => {
   const [bought, boughtRefetch] = useBought();
@@ -74,7 +75,11 @@ const RequestedProperties = () => {
         </div>
       ) : (
         <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
-          <div className="overflow-x-auto mt-12">
+          <div className="flex justify-center">
+            <SectionTitle title={"Requested Properties"} />
+          </div>
+
+          <div className="overflow-x-auto">
             <table className="table table-md lg:table-lg">
               <thead className="text-base font-medium text-white rounded-t-lg">
                 <tr className="bg-primary">

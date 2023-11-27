@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import usePayment from "../../../Hooks/usePayment";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const PropertyBought = () => {
   const [bought] = useBought();
@@ -40,6 +41,10 @@ const PropertyBought = () => {
         </div>
       ) : (
         <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
+          <div className="flex justify-center">
+            <SectionTitle title={"Property Bought"} />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
             {boughtProperty.map((item, idx) => (
               <div key={idx}>

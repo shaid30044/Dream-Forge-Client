@@ -8,6 +8,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const MyReviews = () => {
   const [review, refetch] = useReview();
@@ -60,7 +61,11 @@ const MyReviews = () => {
           <img src={notFound} />
         </div>
       ) : (
-        <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px]    lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
+        <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
+          <div className="flex justify-center">
+            <SectionTitle title={"My Reviews"} />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-10">
             {reviews.map((review, idx) => (
               <div key={idx}>

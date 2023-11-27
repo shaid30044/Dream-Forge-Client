@@ -4,6 +4,7 @@ import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
 import useBought from "../../../Hooks/useBought";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const MySoldProperties = () => {
   const [bought] = useBought();
@@ -32,7 +33,11 @@ const MySoldProperties = () => {
         </div>
       ) : (
         <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
-          <div className="overflow-x-auto mt-12">
+          <div className="flex justify-center">
+            <SectionTitle title={"My Sold Properties"} />
+          </div>
+
+          <div className="overflow-x-auto">
             <table className="table table-md lg:table-lg">
               <thead className="text-base font-medium text-white rounded-t-lg">
                 <tr className="bg-primary">

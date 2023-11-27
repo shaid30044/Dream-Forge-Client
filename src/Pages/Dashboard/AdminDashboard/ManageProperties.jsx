@@ -4,6 +4,7 @@ import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useProperty from "../../../Hooks/useProperty";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const ManageProperties = () => {
   const [property, refetch] = useProperty();
@@ -71,7 +72,11 @@ const ManageProperties = () => {
         </div>
       ) : (
         <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
-          <div className="overflow-x-auto mt-12">
+          <div className="flex justify-center">
+            <SectionTitle title={"Manage Properties"} />
+          </div>
+
+          <div className="overflow-x-auto">
             <table className="table table-md lg:table-lg">
               <thead className="text-base font-medium text-white rounded-t-lg">
                 <tr className="bg-primary">

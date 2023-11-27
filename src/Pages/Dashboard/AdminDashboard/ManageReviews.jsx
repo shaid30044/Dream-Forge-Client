@@ -5,6 +5,7 @@ import useReview from "../../../Hooks/useReview";
 import { MdDelete } from "react-icons/md";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const ManageReviews = () => {
   const [review, refetch] = useReview();
@@ -54,6 +55,10 @@ const ManageReviews = () => {
         </div>
       ) : (
         <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
+          <div className="flex justify-center">
+            <SectionTitle title={"Manage Reviews"} />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-10">
             {review.map((review, idx) => (
               <div key={idx}>

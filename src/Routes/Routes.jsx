@@ -22,6 +22,8 @@ import MySoldProperties from "../Pages/Dashboard/AgentDashboard/MySoldProperties
 import ManageProperties from "../Pages/Dashboard/AdminDashboard/ManageProperties";
 import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 import ManageReviews from "../Pages/Dashboard/AdminDashboard/ManageReviews";
+import AdminRoute from "./AdminRoute";
+import AgentRoute from "./AgentRoute";
 
 const router = createBrowserRouter([
   {
@@ -100,33 +102,33 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/agentProfile",
         element: (
-          <PrivateRoutes>
+          <AgentRoute>
             <AgentProfile />
-          </PrivateRoutes>
+          </AgentRoute>
         ),
       },
       {
         path: "/dashboard/myAddedProperties",
         element: (
-          <PrivateRoutes>
+          <AgentRoute>
             <MyAddedProperties />
-          </PrivateRoutes>
+          </AgentRoute>
         ),
       },
       {
         path: "/dashboard/mySoldProperties",
         element: (
-          <PrivateRoutes>
+          <AgentRoute>
             <MySoldProperties />
-          </PrivateRoutes>
+          </AgentRoute>
         ),
       },
       {
         path: "/dashboard/requestedProperties",
         element: (
-          <PrivateRoutes>
+          <AgentRoute>
             <RequestedProperties />
-          </PrivateRoutes>
+          </AgentRoute>
         ),
       },
 
@@ -135,25 +137,25 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/manageProperties",
         element: (
-          <PrivateRoutes>
+          <AdminRoute>
             <ManageProperties />
-          </PrivateRoutes>
+          </AdminRoute>
         ),
       },
       {
         path: "/dashboard/manageUsers",
         element: (
-          <PrivateRoutes>
+          <AdminRoute>
             <ManageUsers />
-          </PrivateRoutes>
+          </AdminRoute>
         ),
       },
       {
         path: "/dashboard/manageReviews",
         element: (
-          <PrivateRoutes>
+          <AdminRoute>
             <ManageReviews />
-          </PrivateRoutes>
+          </AdminRoute>
         ),
       },
 

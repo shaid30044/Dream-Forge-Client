@@ -11,6 +11,7 @@ import { BiSolidEditAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const MyAddedProperties = () => {
   const [property, refetch] = useProperty();
@@ -66,6 +67,10 @@ const MyAddedProperties = () => {
         </div>
       ) : (
         <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px]    lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
+          <div className="flex justify-center">
+            <SectionTitle title={"My Added Properties"} />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-x-6 gap-y-8 lg:gap-8">
             {properties.map((property, idx) => (
               <div key={idx}>

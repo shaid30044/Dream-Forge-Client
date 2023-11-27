@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import notFound from "../../../assets/NotFound.jpg";
 import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const Wishlist = () => {
   const [wishlist, wishlistRefetch] = useWishlist();
@@ -64,6 +65,10 @@ const Wishlist = () => {
         </div>
       ) : (
         <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
+          <div className="flex justify-center">
+            <SectionTitle title={"Wishlist"} />
+          </div>
+
           <div className="space-y-16 lg:space-y-10">
             {wishlists.map((wishlist, idx) => (
               <div key={idx} className="grid lg:grid-cols-2 gap-2 lg:gap-8">
