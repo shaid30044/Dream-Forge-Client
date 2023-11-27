@@ -118,5 +118,53 @@
     "agentEmail": "agent10@example.com",
     "agentName": "Emma Garcia",
     "agentImage": "https://i.ibb.co/HrFSRbf/image-25.png"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/ZBJgn36/image-12-3.png",
+    "propertyTitle": "Elegant Coastal Villa",
+    "propertyLocation": "Naples, FL",
+    "minPrice": "$2,500,000",
+    "maxPrice": "$3,000,000",
+    "verificationStatus": "verified",
+    "details": "Experience coastal luxury with this elegant villa in Naples, Florida. The villa showcases timeless architecture, high-end finishes, and panoramic views of the Gulf of Mexico. Enjoy direct access to the beach, a private pool, and meticulously landscaped grounds. Whether you're hosting soirées or seeking a private retreat, this coastal villa offers the epitome of elegance and comfort for the discerning homeowner.",
+    "agentEmail": "abc@gmail.com",
+    "agentName": "Shaid Hasan",
+    "agentImage": "https://lh3.googleusercontent.com/a/ACg8ocIVnmuEO7LGeSm2o02m8rhwLQ9WnBf8LHK1gBgAhu4tfcw=s96-c"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/rpHkwV1/image-13-3.png",
+    "propertyTitle": "Luxury Desert Oasis",
+    "propertyLocation": "Sedona, AZ",
+    "minPrice": "$1,600,000",
+    "maxPrice": "$1,800,000",
+    "verificationStatus": "verified",
+    "details": "Escape to a luxury desert oasis in Sedona, Arizona, with this exquisite property. The oasis features a modern desert-style home with spacious living areas and breathtaking red rock views. Relax in the private courtyard with a pool and spa, creating a serene retreat amidst the desert landscape. This property offers a perfect blend of luxury and nature for those seeking a unique and tranquil living experience.",
+    "agentEmail": "abc@gmail.com",
+    "agentName": "Shaid Hasan",
+    "agentImage": "https://lh3.googleusercontent.com/a/ACg8ocIVnmuEO7LGeSm2o02m8rhwLQ9WnBf8LHK1gBgAhu4tfcw=s96-c"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/5MTtrqF/image-14-4.png",
+    "propertyTitle": "Mountain View Retreat",
+    "propertyLocation": "Boulder, CO",
+    "minPrice": "$1,300,000",
+    "maxPrice": "$1,500,000",
+    "verificationStatus": "verified",
+    "details": "Discover the beauty of mountain living with this charming retreat in Boulder, Colorado. The property offers stunning mountain views, a cozy interior with rustic charm, and easy access to hiking trails. Enjoy the fresh mountain air from your private deck or relax by the fireplace in the spacious living room. This retreat provides a perfect blend of comfort and natural beauty for those seeking a mountain escape.",
+    "agentEmail": "abc@gmail.com",
+    "agentName": "Shaid Hasan",
+    "agentImage": "https://lh3.googleusercontent.com/a/ACg8ocIVnmuEO7LGeSm2o02m8rhwLQ9WnBf8LHK1gBgAhu4tfcw=s96-c"
+  },
+  {
+    "propertyImage": "https://i.ibb.co/3CfLrFg/image-15-3.png",
+    "propertyTitle": "Mansion in the Woods",
+    "propertyLocation": "Woodinville, WA",
+    "minPrice": "$2,200,000",
+    "maxPrice": "$2,500,000",
+    "verificationStatus": "verified",
+    "details": "Experience grandeur in the midst of nature with this luxurious mansion in Woodinville, Washington. The property is nestled in the woods, offering privacy and tranquility. The mansion boasts spacious rooms, high-end finishes, and expansive grounds. Whether you're hosting gatherings or seeking a private estate, this mansion provides an exclusive and sophisticated retreat for those with discerning tastes.",
+    "agentEmail": "abc@gmail.com",
+    "agentName": "Shaid Hasan",
+    "agentImage": "https://lh3.googleusercontent.com/a/ACg8ocIVnmuEO7LGeSm2o02m8rhwLQ9WnBf8LHK1gBgAhu4tfcw=s96-c"
   }
 ]

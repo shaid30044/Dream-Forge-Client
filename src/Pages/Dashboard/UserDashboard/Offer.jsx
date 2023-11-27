@@ -147,7 +147,7 @@ const Offer = () => {
 
             <p className="text-xl text-white pt-6 pb-4">Offered Amount</p>
             <input
-              type="text"
+              type="number"
               {...register("amount", {
                 required: true,
               })}

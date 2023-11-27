@@ -14,6 +14,9 @@ import PropertyBought from "../Pages/Dashboard/UserDashboard/PropertyBought";
 import MyProfile from "../Pages/Dashboard/UserDashboard/MyProfile";
 import Payment from "../Pages/Dashboard/Payment";
 import MyReviews from "../Pages/Dashboard/UserDashboard/MyReviews";
+import AgentProfile from "../Pages/Dashboard/AgentDashboard/AgentProfile";
+import MyAddedProperties from "../Pages/Dashboard/AgentDashboard/MyAddedProperties";
+import UpdateProperty from "../Pages/Dashboard/UpdateProperty";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +92,23 @@ const router = createBrowserRouter([
 
       // agent dashboard
 
+      {
+        path: "/dashboard/agentProfile",
+        element: (
+          <PrivateRoutes>
+            <AgentProfile />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/myAddedProperties",
+        element: (
+          <PrivateRoutes>
+            <MyAddedProperties />
+          </PrivateRoutes>
+        ),
+      },
+
       // admin dashboard
 
       {
@@ -113,6 +133,19 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/bought/${params.id}`),
+      },
+
+      // update property
+
+      {
+        path: "/dashboard/updateProperty/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateProperty />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/property/${params.id}`),
       },
 
       {

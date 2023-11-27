@@ -147,7 +147,7 @@ const DashboardSideBar = () => {
             style={{ backgroundImage: `url(${bg})` }}
             className="bg-cover bg-no-repeat w-64 h-screen"
           >
-            <div className="overflow-auto font-open w-64 h-screen px-4 bg-black/70 md:px-6 lg:px-8 py-12">
+            <div className="overflow-auto font-open w-64 h-screen px-4 bg-black/7 py-12">
               {/* dashboard slide button */}
 
               <button
@@ -287,7 +287,7 @@ const DashboardSideBar = () => {
         style={{ backgroundImage: `url(${bg})` }}
         className="bg-cover bg-no-repeat w-64 h-screen"
       >
-        <div className="hidden md:block overflow-auto font-open w-64 h-screen px-4 bg-black/70 md:px-6 lg:px-8 py-12">
+        <div className="hidden md:block overflow-auto font-open w-64 h-screen px-4 bg-black/70 py-12">
           {/* brand name */}
 
           <div className="text-white text-3xl  py-1 md:py-0">
