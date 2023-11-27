@@ -91,10 +91,11 @@ const CheckoutForm = ({ amount }) => {
           soldPrice: `$${realAmount}`,
           transactionId: paymentIntent.id,
           date: formattedNewDate,
-          status: "bought",
         };
 
         const res = await axiosPublic.post("/payments", payment);
+
+        const result = await axiosPublic.patch(`/bought/${amount._id}`);
 
         if (res.data?.insertedId) {
           Swal.fire({

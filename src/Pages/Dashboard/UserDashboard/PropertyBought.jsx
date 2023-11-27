@@ -3,9 +3,24 @@ import useBought from "../../../Hooks/useBought";
 import notFound from "../../../assets/NotFound.jpg";
 import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
 import { Link } from "react-router-dom";
+import usePayment from "../../../Hooks/usePayment";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const PropertyBought = () => {
   const [bought] = useBought();
+  const [payment] = usePayment();
+  const { user } = useContext(AuthContext);
+
+  const boughtProperty = bought.filter(
+    (bought) => bought.buyerEmail === user?.email
+  );
+
+  const payments = payment.filter(
+    (payment) => payment.buyerEmail === user?.email
+  );
+
+  console.log(payments);
 
   return (
     <div>
@@ -17,7 +32,7 @@ const PropertyBought = () => {
         <DashboardSideBar />
       </div>
 
-      {bought.length === 0 ? (
+      {boughtProperty.length === 0 ? (
         // not found
 
         <div className="flex justify-center items-center h-screen pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
@@ -26,7 +41,7 @@ const PropertyBought = () => {
       ) : (
         <div className="font-open w-full pr-4 pl-3 md:pr-6 md:pl-[280px] lg:pr-40 lg:pl-[400px] pt-6 pb-12 md:py-12">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {bought.map((item, idx) => (
+            {boughtProperty.map((item, idx) => (
               <div key={idx}>
                 <img src={item.propertyImage} />
 
@@ -39,7 +54,7 @@ const PropertyBought = () => {
                       {item.agentName}
                     </p>
 
-                    {/* verification status */}
+                    {/* status */}
 
                     <p>
                       <span
@@ -48,13 +63,13 @@ const PropertyBought = () => {
                             ? "primary"
                             : item.status === "accepted"
                             ? "[#70c641]"
-                            : "dark7"
+                            : "dark1"
                         } bg-${
                           item.status === "pending"
                             ? "primary1"
                             : item.status === "accepted"
                             ? "[#f3ffec]"
-                            : "dark3"
+                            : "black/20"
                         } rounded-full px-3 py-1`}
                       >
                         {item.status}
