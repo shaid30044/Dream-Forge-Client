@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import useBought from "../../../Hooks/useBought";
 import notFound from "../../../assets/NotFound.jpg";
 import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
+import { Link } from "react-router-dom";
 
 const PropertyBought = () => {
   const [bought] = useBought();
@@ -100,11 +101,11 @@ const PropertyBought = () => {
                     {/* details button */}
 
                     {item.status === "accepted" ? (
-                      <div>
+                      <Link to={`/dashboard/payment/${item._id}`}>
                         <button className="btn normal-case text-dark1 hover:text-white bg-transparent hover:bg-primary border-2 border-dark1 hover:border-primary rounded-full duration-300 px-6">
                           Pay
                         </button>
-                      </div>
+                      </Link>
                     ) : (
                       ""
                     )}

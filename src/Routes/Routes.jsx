@@ -12,6 +12,7 @@ import Wishlist from "../Pages/Dashboard/UserDashboard/Wishlist";
 import Offer from "../Pages/Dashboard/UserDashboard/Offer";
 import PropertyBought from "../Pages/Dashboard/UserDashboard/PropertyBought";
 import MyProfile from "../Pages/Dashboard/UserDashboard/MyProfile";
+import Payment from "../Pages/Dashboard/Payment";
 
 const router = createBrowserRouter([
   {
@@ -91,6 +92,20 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/wishlist/${params.id}`),
       },
+
+      // payment
+
+      {
+        path: "/dashboard/payment/:id",
+        element: (
+          <PrivateRoutes>
+            <Payment />
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/bought/${params.id}`),
+      },
+
       {
         path: "/login",
         element: <Login />,
