@@ -48,7 +48,7 @@ const MyReviews = () => {
   return (
     <div>
       <Helmet>
-        <title>Dream Forge | Property Bought</title>
+        <title>Dream Forge | My Reviews</title>
       </Helmet>
       <div className="fixed z-50">
         <DashboardSideBar />

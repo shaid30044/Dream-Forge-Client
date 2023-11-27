@@ -56,7 +56,7 @@ const ManageProperties = () => {
   return (
     <div>
       <Helmet>
-        <title>Dream Forge | My Added Properties</title>
+        <title>Dream Forge | Manage Properties</title>
       </Helmet>
 
       <div className="fixed z-50">

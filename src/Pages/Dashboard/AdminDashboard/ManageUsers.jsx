@@ -103,7 +103,7 @@ const ManageUsers = () => {
   return (
     <div>
       <Helmet>
-        <title>Dream Forge | My Added Properties</title>
+        <title>Dream Forge | Manage Users</title>
       </Helmet>
 
       <div className="fixed z-50">

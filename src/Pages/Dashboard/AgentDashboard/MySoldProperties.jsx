@@ -17,7 +17,7 @@ const MySoldProperties = () => {
   return (
     <div>
       <Helmet>
-        <title>Dream Forge | My Added Properties</title>
+        <title>Dream Forge | My Sold Properties</title>
       </Helmet>
 
       <div className="fixed z-50">
