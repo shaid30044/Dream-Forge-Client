@@ -11,11 +11,12 @@ const ManageProperties = () => {
 
   const handleVerify = (request) => {
     const verifyStatus = {
-      verificationStatus: "verified",
+      $set: {
+        verificationStatus: "verified",
+      },
     };
 
     axiosPublic.patch(`/property/${request._id}`, verifyStatus).then((res) => {
-      console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
 
@@ -32,11 +33,12 @@ const ManageProperties = () => {
 
   const handleReject = (request) => {
     const verifyStatus = {
-      verificationStatus: "rejected",
+      $set: {
+        verificationStatus: "rejected",
+      },
     };
 
     axiosPublic.patch(`/property/${request._id}`, verifyStatus).then((res) => {
-      console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
 
@@ -113,7 +115,7 @@ const ManageProperties = () => {
                       {property.verificationStatus === "verified" ? (
                         ""
                       ) : property.verificationStatus === "rejected" ? (
-                        <span className="text-[#70c641]">rejected</span>
+                        <span className="text-primary">rejected</span>
                       ) : (
                         <button
                           onClick={() => handleReject(property)}

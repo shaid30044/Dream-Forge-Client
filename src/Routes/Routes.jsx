@@ -20,6 +20,7 @@ import UpdateProperty from "../Pages/Dashboard/UpdateProperty";
 import RequestedProperties from "../Pages/Dashboard/AgentDashboard/RequestedProperties";
 import MySoldProperties from "../Pages/Dashboard/AgentDashboard/MySoldProperties";
 import ManageProperties from "../Pages/Dashboard/AdminDashboard/ManageProperties";
+import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -135,6 +136,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <ManageProperties />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/dashboard/manageUsers",
+        element: (
+          <PrivateRoutes>
+            <ManageUsers />
           </PrivateRoutes>
         ),
       },

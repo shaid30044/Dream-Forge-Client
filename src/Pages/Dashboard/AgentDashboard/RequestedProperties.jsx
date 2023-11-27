@@ -22,7 +22,6 @@ const RequestedProperties = () => {
     };
 
     axiosPublic.patch(`/bought/${request._id}`, offerStatus).then((res) => {
-      console.log(res.data);
       if (res.data.modifiedCount > 0) {
         boughtRefetch();
 
@@ -43,7 +42,6 @@ const RequestedProperties = () => {
     };
 
     axiosPublic.patch(`/bought/${request._id}`, offerStatus).then((res) => {
-      console.log(res.data);
       if (res.data.modifiedCount > 0) {
         boughtRefetch();
 
