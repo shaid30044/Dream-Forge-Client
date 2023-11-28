@@ -1,8 +1,17 @@
-# React + Vite
+• User can view the advertisement properties in the Advertisement section of the Home page.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+• User can see the latest reviews in the Review section of the Home page.
 
-Currently, two official plugins are available:
+• User can search any property on All Properties page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+• User can filter the properties on the All Properties page by price ascending and descending.
+
+• User can add any property to his wishlist and also remove it from the wishlist.
+
+• User can make an offer to the agent for any property with the price of his choice within the price range mentioned in that property.
+
+• User can buy any property using Stripe card.
+
+• Agent can verify any property from admin.
+
+live link: https://dream-forge.web.app

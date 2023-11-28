@@ -47,14 +47,6 @@ const Navbar = () => {
     },
   ];
 
-  const others = [
-    {
-      id: 1,
-      name: "Profile",
-      path: "/profile",
-    },
-  ];
-
   const handleUserInfoClick = () => {
     setShowUserInfo(!showUserInfo);
   };
@@ -203,19 +195,6 @@ const Navbar = () => {
                   <p className="text-center py-4">{userInfo?.name}</p>
                   <p className="text-center pb-4">{userInfo?.email}</p>
                 </div>
-
-                {/* profile and dashboard */}
-
-                {others.map((other) => (
-                  <div
-                    key={other.id}
-                    className="hover:bg-white/30 hover:rounded-xl text-center cursor-pointer duration-300 w-full"
-                  >
-                    <Link to={other.path}>
-                      <button className="w-60 py-4">{other.name}</button>
-                    </Link>
-                  </div>
-                ))}
 
                 {/* log out */}
 
