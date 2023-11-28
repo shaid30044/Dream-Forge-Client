@@ -1,5 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
-import { BsBuildingGear, BsBuilding, BsBuildingAdd } from "react-icons/bs";
+import {
+  BsBuildingGear,
+  BsBuilding,
+  BsBuildingAdd,
+  BsBuildingUp,
+} from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
 import { TbMoneybag, TbUserCog, TbUser } from "react-icons/tb";
 import {
@@ -59,6 +64,10 @@ const DashboardSideBar = () => {
 
   const soldCount = bought.filter(
     (sold) => sold.agentEmail === user?.email && sold.status === "bought"
+  );
+
+  const advertiseCount = property.filter(
+    (advertise) => advertise.advertise === "done"
   );
 
   const userPath = [
@@ -141,6 +150,12 @@ const DashboardSideBar = () => {
       path: "/dashboard/manageReviews",
       icon: MdOutlineManageHistory,
       count: review.length,
+    },
+    {
+      name: "Advertise Property",
+      path: "/dashboard/advertiseProperty",
+      icon: BsBuildingUp,
+      count: advertiseCount.length,
     },
   ];
 
