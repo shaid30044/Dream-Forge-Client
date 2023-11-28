@@ -58,7 +58,7 @@ const AddProperty = () => {
           timer: 1500,
         });
 
-        navigate(-1);
+        navigate("/dashboard/myAddedProperties");
       }
     }
   };

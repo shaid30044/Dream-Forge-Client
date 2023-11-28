@@ -15,6 +15,12 @@ const MySoldProperties = () => {
       request.agentEmail === user.email && request.status === "bought"
   );
 
+  const totalSoldAmount = requests.reduce(
+    (total, request) =>
+      total + Number(request.offeredAmount.replace(/[^0-9.-]+/g, "")),
+    0
+  );
+
   return (
     <div>
       <Helmet>
@@ -36,6 +42,10 @@ const MySoldProperties = () => {
           <div className="flex justify-center">
             <SectionTitle title={"My Sold Properties"} />
           </div>
+
+          <p className="text-xl md:text-2xl text-dark2 font-semibold pb-6">
+            Total Property Sold Amount: ${totalSoldAmount}
+          </p>
 
           <div className="overflow-x-auto">
             <table className="table table-md lg:table-lg">
