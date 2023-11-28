@@ -6,15 +6,15 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import notFound from "../../../assets/NotFound.jpg";
 import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
 import SectionTitle from "../../../Shared/SectionTitle";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Wishlist = () => {
   const [wishlist, wishlistRefetch] = useWishlist();
   const { user } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const wishlists = wishlist.filter(
     (wishlist) => wishlist.buyerEmail === user?.email
@@ -30,7 +30,7 @@ const Wishlist = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/wishlist/${id}`).then((res) => {
+        axiosSecure.delete(`/wishlist/${id}`).then((res) => {
           if (res.data.deletedCount) {
             wishlistRefetch();
 

@@ -1,12 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const UpdateProperty = () => {
   const property = useLoaderData();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const {
     register,
@@ -36,7 +36,7 @@ const UpdateProperty = () => {
       },
     };
 
-    const res = await axiosPublic.patch(
+    const res = await axiosSecure.patch(
       `/property/${property._id}`,
       updateInfo
     );

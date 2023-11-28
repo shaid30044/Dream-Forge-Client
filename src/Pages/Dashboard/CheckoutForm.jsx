@@ -2,14 +2,14 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const CheckoutForm = ({ amount }) => {
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -19,7 +19,7 @@ const CheckoutForm = ({ amount }) => {
 
   useEffect(() => {
     if (fakeAmount) {
-      axiosPublic
+      axiosSecure
         .post("/create-payment-intent", {
           price: fakeAmount,
         })
@@ -27,7 +27,7 @@ const CheckoutForm = ({ amount }) => {
           setClientSecret(res.data.clientSecret);
         });
     }
-  }, [axiosPublic, fakeAmount]);
+  }, [axiosSecure, fakeAmount]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -93,13 +93,13 @@ const CheckoutForm = ({ amount }) => {
           date: formattedNewDate,
         };
 
-        const res = await axiosPublic.post("/payments", payment);
+        const res = await axiosSecure.post("/payments", payment);
 
         const offerStatus = {
           status: "bought",
         };
 
-        const result = await axiosPublic.patch(
+        const result = await axiosSecure.patch(
           `/bought/${amount._id}`,
           offerStatus
         );

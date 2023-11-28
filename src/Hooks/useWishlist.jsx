@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "./useAxiosPublic";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useWishlist = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const { data: wishlist = [], refetch: wishlistRefetch } = useQuery({
     queryKey: ["wishlist"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/wishlist");
+      const res = await axiosSecure.get("/wishlist");
       return res.data;
     },
   });

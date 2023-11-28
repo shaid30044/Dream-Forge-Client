@@ -4,14 +4,14 @@ import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
 import useBought from "../../../Hooks/useBought";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import SectionTitle from "../../../Shared/SectionTitle";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const RequestedProperties = () => {
   const [bought, boughtRefetch] = useBought();
   const { user } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const requests = bought.filter(
     (request) => request.agentEmail === user.email
@@ -22,7 +22,7 @@ const RequestedProperties = () => {
       status: "accepted",
     };
 
-    axiosPublic.patch(`/bought/${request._id}`, offerStatus).then((res) => {
+    axiosSecure.patch(`/bought/${request._id}`, offerStatus).then((res) => {
       if (res.data.modifiedCount > 0) {
         boughtRefetch();
 
@@ -42,7 +42,7 @@ const RequestedProperties = () => {
       status: "rejected",
     };
 
-    axiosPublic.patch(`/bought/${request._id}`, offerStatus).then((res) => {
+    axiosSecure.patch(`/bought/${request._id}`, offerStatus).then((res) => {
       if (res.data.modifiedCount > 0) {
         boughtRefetch();
 

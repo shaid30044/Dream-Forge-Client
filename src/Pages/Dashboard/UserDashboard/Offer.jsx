@@ -5,13 +5,13 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import useUser from "../../../Hooks/useUser";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Offer = () => {
   const property = useLoaderData();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [users] = useUser();
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ const Offer = () => {
       if (enteredAmount >= minPrice && enteredAmount <= maxPrice) {
         setAmountError("");
 
-        const wishlistRes = await axiosPublic.post("/bought", offerInfo);
+        const wishlistRes = await axiosSecure.post("/bought", offerInfo);
 
         if (wishlistRes.data.insertedId) {
           reset();

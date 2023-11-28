@@ -2,11 +2,13 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useUser from "../../Hooks/useUser";
 
 const ReviewModal = ({ propertyTitle, agentName, id, refetch }) => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
+  const [users] = useUser();
 
   const {
     register,
@@ -14,6 +16,8 @@ const ReviewModal = ({ propertyTitle, agentName, id, refetch }) => {
     reset,
     formState: { errors },
   } = useForm();
+
+  const userInfo = users.find((userInfo) => userInfo.email === user.email);
 
   const onSubmit = async (data) => {
     const date = new Date();
@@ -33,15 +37,15 @@ const ReviewModal = ({ propertyTitle, agentName, id, refetch }) => {
     const review = {
       propertyTitle: data.title,
       reviewId: id,
-      reviewerName: user.displayName,
-      reviewerEmail: user.email,
-      reviewerImage: user.photoURL,
+      reviewerName: userInfo.name,
+      reviewerEmail: userInfo.email,
+      reviewerImage: userInfo.photo,
       reviewDescription: data.review,
       agentName: agentName,
       reviewTime: formattedNewDate,
     };
 
-    const reviewRes = await axiosPublic.post("/review", review);
+    const reviewRes = await axiosSecure.post("/review", review);
 
     if (reviewRes.data.insertedId) {
       refetch();

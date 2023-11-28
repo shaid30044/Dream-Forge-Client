@@ -7,13 +7,13 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaQuoteLeft } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import SectionTitle from "../../../Shared/SectionTitle";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const MyReviews = () => {
   const [review, refetch] = useReview();
   const { user } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const reviews = review.filter(
     (review) => review.reviewerEmail === user.email
@@ -29,7 +29,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/review/${id}`).then((res) => {
+        axiosSecure.delete(`/review/${id}`).then((res) => {
           if (res.data.deletedCount) {
             refetch();
 

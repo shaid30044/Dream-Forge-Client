@@ -9,19 +9,19 @@ import PropertyReviews from "../Components/AllProperties/PropertyReviews";
 import SectionTitle from "../Shared/SectionTitle";
 import ReviewModal from "../Components/PropertyDetails/ReviewModal";
 import useReview from "../Hooks/useReview";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useWishlist from "../Hooks/useWishlist";
 import useUser from "../Hooks/useUser";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const PropertyDetails = () => {
   const property = useLoaderData();
   const [review, refetch] = useReview();
   const [wishlist, wishlistRefetch] = useWishlist();
   const [users] = useUser();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
 
   const userInfo = users.find((userInfo) => userInfo.email === user?.email);
@@ -58,7 +58,7 @@ const PropertyDetails = () => {
       buyerName: userInfo?.name,
     };
 
-    const wishlistRes = await axiosPublic.post("/wishlist", wishlist);
+    const wishlistRes = await axiosSecure.post("/wishlist", wishlist);
 
     if (wishlistRes.data.insertedId) {
       wishlistRefetch();

@@ -1,18 +1,19 @@
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import bg from "../../../assets/Offer.webp";
 import useUser from "../../../Hooks/useUser";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddProperty = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const [users] = useUser();
   const { user } = useContext(AuthContext);
@@ -27,7 +28,7 @@ const AddProperty = () => {
 
   const onSubmit = async (data) => {
     const imageFile = { image: data.image[0] };
-    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+    const res = await axios.post(image_hosting_api, imageFile, {
       headers: {
         "content-type": "multipart/form-data",
       },
@@ -46,7 +47,7 @@ const AddProperty = () => {
         agentImage: userInfo?.photo,
       };
 
-      const propertyRes = await axiosPublic.post("/property", newProperty);
+      const propertyRes = await axiosSecure.post("/property", newProperty);
       if (propertyRes.data.insertedId) {
         reset();
 
@@ -185,12 +186,22 @@ const AddProperty = () => {
 
             <br />
 
-            {/* create account */}
-            <input
-              type="submit"
-              value="Add Property"
-              className="btn normal-case text-lg font-semibold text-white bg-transparent hover:bg-primary border-2 border-white hover:border-primary rounded-full duration-300 px-10 mt-12"
-            />
+            {/* add property */}
+
+            {userInfo?.role === "fraud" ? (
+              <input
+                type="submit"
+                value="Add Property"
+                disabled
+                className="btn normal-case text-lg font-semibold text-white bg-transparent hover:bg-primary border-2 border-white hover:border-primary rounded-full duration-300 px-10 mt-12"
+              />
+            ) : (
+              <input
+                type="submit"
+                value="Add Property"
+                className="btn normal-case text-lg font-semibold text-white bg-transparent hover:bg-primary border-2 border-white hover:border-primary rounded-full duration-300 px-10 mt-12"
+              />
+            )}
           </form>
         </div>
       </div>

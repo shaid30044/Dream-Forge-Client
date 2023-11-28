@@ -10,13 +10,13 @@ import { MdDelete } from "react-icons/md";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import SectionTitle from "../../../Shared/SectionTitle";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const MyAddedProperties = () => {
   const [property, refetch] = useProperty();
   const { user } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const properties = property.filter(
     (property) => property.agentEmail === user.email
@@ -32,7 +32,7 @@ const MyAddedProperties = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/property/${id}`).then((res) => {
+        axiosSecure.delete(`/property/${id}`).then((res) => {
           if (res.data.deletedCount) {
             refetch();
 

@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import notFound from "../../../assets/NotFound.jpg";
 import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useUser from "../../../Hooks/useUser";
 import SectionTitle from "../../../Shared/SectionTitle";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ManageUsers = () => {
   const [users, usersRefetch] = useUser();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const handleMakeAgent = (user) => {
     const verifyStatus = {
@@ -17,7 +17,7 @@ const ManageUsers = () => {
       },
     };
 
-    axiosPublic.patch(`/user/${user._id}`, verifyStatus).then((res) => {
+    axiosSecure.patch(`/user/${user._id}`, verifyStatus).then((res) => {
       if (res.data.modifiedCount > 0) {
         usersRefetch();
 
@@ -39,7 +39,7 @@ const ManageUsers = () => {
       },
     };
 
-    axiosPublic.patch(`/user/${user._id}`, verifyStatus).then((res) => {
+    axiosSecure.patch(`/user/${user._id}`, verifyStatus).then((res) => {
       if (res.data.modifiedCount > 0) {
         usersRefetch();
 
@@ -60,7 +60,7 @@ const ManageUsers = () => {
         role: "fraud",
       },
     };
-    axiosPublic.patch(`/user/${user._id}`, verifyStatus).then((res) => {
+    axiosSecure.patch(`/user/${user._id}`, verifyStatus).then((res) => {
       if (res.data.modifiedCount > 0) {
         usersRefetch();
         Swal.fire({
@@ -84,7 +84,7 @@ const ManageUsers = () => {
       confirmButtonText: "Yes.",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/user/${user._id}`).then((res) => {
+        axiosSecure.delete(`/user/${user._id}`).then((res) => {
           if (res.data.deletedCount) {
             usersRefetch();
 

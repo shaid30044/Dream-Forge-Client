@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import notFound from "../../../assets/NotFound.jpg";
 import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useProperty from "../../../Hooks/useProperty";
 import SectionTitle from "../../../Shared/SectionTitle";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ManageProperties = () => {
   const [property, refetch] = useProperty();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const handleVerify = (request) => {
     const verifyStatus = {
@@ -17,7 +17,7 @@ const ManageProperties = () => {
       },
     };
 
-    axiosPublic.patch(`/property/${request._id}`, verifyStatus).then((res) => {
+    axiosSecure.patch(`/property/${request._id}`, verifyStatus).then((res) => {
       if (res.data.modifiedCount > 0) {
         refetch();
 
@@ -39,7 +39,7 @@ const ManageProperties = () => {
       },
     };
 
-    axiosPublic.patch(`/property/${request._id}`, verifyStatus).then((res) => {
+    axiosSecure.patch(`/property/${request._id}`, verifyStatus).then((res) => {
       if (res.data.modifiedCount > 0) {
         refetch();
 

@@ -3,13 +3,13 @@ import notFound from "../../../assets/NotFound.jpg";
 import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
 import useReview from "../../../Hooks/useReview";
 import { MdDelete } from "react-icons/md";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import SectionTitle from "../../../Shared/SectionTitle";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ManageReviews = () => {
   const [review, refetch] = useReview();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -21,7 +21,7 @@ const ManageReviews = () => {
       confirmButtonText: "Yes.",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/review/${id}`).then((res) => {
+        axiosSecure.delete(`/review/${id}`).then((res) => {
           if (res.data.deletedCount) {
             refetch();
             Swal.fire({

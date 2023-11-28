@@ -1,15 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import notFound from "../../../assets/NotFound.jpg";
 import DashboardSideBar from "../../../Shared/Dashboard/DashboardSideBar";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useProperty from "../../../Hooks/useProperty";
 import SectionTitle from "../../../Shared/SectionTitle";
 import { useState } from "react";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AdvertiseProperty = () => {
   const [property, refetch] = useProperty();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const [advertisedCount, setAdvertisedCount] = useState(0);
 
@@ -27,7 +27,7 @@ const AdvertiseProperty = () => {
         },
       };
 
-      axiosPublic
+      axiosSecure
         .patch(`/property/${advertise._id}`, verifyStatus)
         .then((res) => {
           if (res.data.modifiedCount > 0) {
@@ -63,7 +63,7 @@ const AdvertiseProperty = () => {
       },
     };
 
-    axiosPublic
+    axiosSecure
       .patch(`/property/${advertise._id}`, verifyStatus)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
