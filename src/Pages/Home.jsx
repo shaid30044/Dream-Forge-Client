@@ -7,6 +7,7 @@ import UserReview from "../Components/Home/UserReview";
 import AboutUs from "../Components/Home/AboutUs";
 import ContactUs from "../Components/Home/ContactUs";
 import { useEffect } from "react";
+import Instagram from "../Components/Home/Instagram";
 
 const Home = () => {
   const scrollToTop = () => {
@@ -30,6 +31,7 @@ const Home = () => {
         <AboutUs />
         <Advertisement />
         <UserReview />
+        <Instagram />
         <ContactUs />
         <Footer />
       </div>
