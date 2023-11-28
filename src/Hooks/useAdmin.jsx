@@ -13,6 +13,8 @@ const useAdmin = () => {
     queryFn: async () => {
       const res = await axiosPublic.get(`/user/admin/${user.email}`);
 
+      console.log(res);
+
       return res.data?.admin;
     },
   });

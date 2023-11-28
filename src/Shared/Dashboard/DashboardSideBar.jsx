@@ -316,7 +316,7 @@ const DashboardSideBar = () => {
           {/* user and admin panel */}
 
           <div className="space-y-6 font-medium border-b-2 border-white pt-8 md:pt-10 lg:pt-16 pb-8 mb-8">
-            {isAdmin ? (
+            {isAdmin && (
               // admin panel
 
               <>
@@ -340,7 +340,8 @@ const DashboardSideBar = () => {
                   </div>
                 ))}
               </>
-            ) : isAgent ? (
+            )}
+            {isAgent && (
               // agent panel
               <>
                 {agent.map((agent, idx) => (
@@ -363,31 +364,33 @@ const DashboardSideBar = () => {
                   </div>
                 ))}
               </>
-            ) : (
-              // user panel
-
-              <>
-                {userPath.map((user, idx) => (
-                  <div key={idx}>
-                    <NavLink
-                      to={user.path}
-                      className={({ isActive, isPending }) =>
-                        isPending
-                          ? "pending"
-                          : isActive
-                          ? "text-primary"
-                          : "text-white"
-                      }
-                    >
-                      <p className="flex items-center gap-2">
-                        {<user.icon />} {user.name}{" "}
-                        {user.count ? <span>({user?.count})</span> : ""}
-                      </p>
-                    </NavLink>
-                  </div>
-                ))}
-              </>
             )}
+            {!isAgent ||
+              (!isAdmin && (
+                // user panel
+
+                <>
+                  {userPath.map((user, idx) => (
+                    <div key={idx}>
+                      <NavLink
+                        to={user.path}
+                        className={({ isActive, isPending }) =>
+                          isPending
+                            ? "pending"
+                            : isActive
+                            ? "text-primary"
+                            : "text-white"
+                        }
+                      >
+                        <p className="flex items-center gap-2">
+                          {<user.icon />} {user.name}{" "}
+                          {user.count ? <span>({user?.count})</span> : ""}
+                        </p>
+                      </NavLink>
+                    </div>
+                  ))}
+                </>
+              ))}
           </div>
 
           {/* pages */}

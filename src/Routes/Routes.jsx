@@ -24,6 +24,7 @@ import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 import ManageReviews from "../Pages/Dashboard/AdminDashboard/ManageReviews";
 import AdminRoute from "./AdminRoute";
 import AgentRoute from "./AgentRoute";
+import AdminProfile from "../Pages/Dashboard/AdminDashboard/AdminProfile";
 
 const router = createBrowserRouter([
   {
@@ -134,6 +135,14 @@ const router = createBrowserRouter([
 
       // admin dashboard
 
+      {
+        path: "/dashboard/adminProfile",
+        element: (
+          <AdminRoute>
+            <AdminProfile />
+          </AdminRoute>
+        ),
+      },
       {
         path: "/dashboard/manageProperties",
         element: (

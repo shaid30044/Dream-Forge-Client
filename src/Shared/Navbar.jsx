@@ -22,6 +22,18 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [showUserInfo, setShowUserInfo] = useState(false);
 
+  const getDashboardPath = () => {
+    if (isAdmin) {
+      return "/dashboard/adminProfile";
+    } else if (isAgent) {
+      return "/dashboard/agentProfile";
+    } else {
+      return "/dashboard/myProfile";
+    }
+  };
+
+  console.log(getDashboardPath());
+
   const pages = [
     {
       name: "Home",
@@ -33,11 +45,7 @@ const Navbar = () => {
     },
     {
       name: "Dashboard",
-      path: isAgent
-        ? "/dashboard/agentProfile"
-        : isAdmin
-        ? "/dashboard/adminProfile"
-        : "/dashboard/myProfile",
+      path: getDashboardPath(),
     },
   ];
 
