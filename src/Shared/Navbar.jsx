@@ -14,8 +14,8 @@ import useUser from "../Hooks/useUser";
 const Navbar = () => {
   const [users] = useUser();
   const { user, logOut } = useContext(AuthContext);
-  const isAgent = useAgent();
-  const isAdmin = useAdmin();
+  const [isAgent] = useAgent();
+  const [isAdmin] = useAdmin();
 
   const userInfo = users.find((userInfo) => userInfo.email === user?.email);
 
@@ -31,8 +31,6 @@ const Navbar = () => {
       return "/dashboard/myProfile";
     }
   };
-
-  console.log(getDashboardPath());
 
   const pages = [
     {

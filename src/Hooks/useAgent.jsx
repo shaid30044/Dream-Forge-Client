@@ -13,8 +13,6 @@ const useAgent = () => {
     queryFn: async () => {
       const res = await axiosPublic.get(`/user/agent/${user.email}`);
 
-      console.log(res);
-
       return res.data?.agent;
     },
   });

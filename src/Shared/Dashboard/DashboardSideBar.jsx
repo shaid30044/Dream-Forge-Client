@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { BsBuildingGear, BsBuilding } from "react-icons/bs";
+import { BsBuildingGear, BsBuilding, BsBuildingAdd } from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
 import { TbMoneybag, TbUserCog, TbUser } from "react-icons/tb";
 import {
@@ -94,6 +94,11 @@ const DashboardSideBar = () => {
       icon: TbUser,
     },
     {
+      name: "Add Property",
+      path: "/dashboard/addProperty",
+      icon: BsBuildingAdd,
+    },
+    {
       name: "My Added Properties",
       path: "/dashboard/myAddedProperties",
       icon: MdOutlineLibraryAddCheck,
@@ -162,7 +167,7 @@ const DashboardSideBar = () => {
             style={{ backgroundImage: `url(${bg})` }}
             className="bg-cover bg-no-repeat w-64 h-screen"
           >
-            <div className="overflow-auto font-open w-64 h-screen px-4 bg-black/7 py-12">
+            <div className="overflow-auto font-open w-64 h-screen px-2 bg-black/7 py-12">
               {/* dashboard slide button */}
 
               <button
@@ -302,7 +307,7 @@ const DashboardSideBar = () => {
         style={{ backgroundImage: `url(${bg})` }}
         className="bg-cover bg-no-repeat w-64 h-screen"
       >
-        <div className="hidden md:block overflow-auto font-open w-64 h-screen px-4 bg-black/70 py-12">
+        <div className="hidden md:block overflow-auto font-open w-64 h-screen px-2 bg-black/70 py-12">
           {/* brand name */}
 
           <div className="text-white text-3xl  py-1 md:py-0">
@@ -316,7 +321,7 @@ const DashboardSideBar = () => {
           {/* user and admin panel */}
 
           <div className="space-y-6 font-medium border-b-2 border-white pt-8 md:pt-10 lg:pt-16 pb-8 mb-8">
-            {isAdmin && (
+            {isAdmin ? (
               // admin panel
 
               <>
@@ -340,8 +345,7 @@ const DashboardSideBar = () => {
                   </div>
                 ))}
               </>
-            )}
-            {isAgent && (
+            ) : isAgent ? (
               // agent panel
               <>
                 {agent.map((agent, idx) => (
@@ -364,33 +368,31 @@ const DashboardSideBar = () => {
                   </div>
                 ))}
               </>
-            )}
-            {!isAgent ||
-              (!isAdmin && (
-                // user panel
+            ) : (
+              // user panel
 
-                <>
-                  {userPath.map((user, idx) => (
-                    <div key={idx}>
-                      <NavLink
-                        to={user.path}
-                        className={({ isActive, isPending }) =>
-                          isPending
-                            ? "pending"
-                            : isActive
-                            ? "text-primary"
-                            : "text-white"
-                        }
-                      >
-                        <p className="flex items-center gap-2">
-                          {<user.icon />} {user.name}{" "}
-                          {user.count ? <span>({user?.count})</span> : ""}
-                        </p>
-                      </NavLink>
-                    </div>
-                  ))}
-                </>
-              ))}
+              <>
+                {userPath.map((user, idx) => (
+                  <div key={idx}>
+                    <NavLink
+                      to={user.path}
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
+                          : isActive
+                          ? "text-primary"
+                          : "text-white"
+                      }
+                    >
+                      <p className="flex items-center gap-2">
+                        {<user.icon />} {user.name}{" "}
+                        {user.count ? <span>({user?.count})</span> : ""}
+                      </p>
+                    </NavLink>
+                  </div>
+                ))}
+              </>
+            )}
           </div>
 
           {/* pages */}

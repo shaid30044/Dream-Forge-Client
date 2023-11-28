@@ -27,11 +27,11 @@ const AdminProfile = () => {
         </div>
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-          <img src={userInfo.photo} className="rounded-full w-28 h-28" />
+          <img src={userInfo?.photo} className="rounded-full w-28 h-28" />
           <div>
-            <p className="text-xl font-semibold">Name: {userInfo.name}</p>
+            <p className="text-xl font-semibold">Name: {userInfo?.name}</p>
             <p className="text-xl font-semibold py-2">
-              Email: {userInfo.email}
+              Email: {userInfo?.email}
             </p>
             <p className="text-xl font-semibold">Roll: {userInfo?.role}</p>
           </div>
