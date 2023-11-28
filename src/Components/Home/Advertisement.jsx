@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 const Advertisement = () => {
   const [property] = useProperty();
 
-  const properties = property.slice(-6);
+  const properties = property.filter(
+    (advertise) => advertise.advertise === "done"
+  );
 
   return (
     <div className="font-open px-4 md:px-10 lg:px-20 py-20 lg:py-32">
