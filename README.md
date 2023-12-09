@@ -38,6 +38,6 @@
 
 - Toast/Sweet Alert Notifications: Users, agents, and admins receive relevant toast or sweet alert notifications after successfully performing CRUD operations or other actions, enhancing the user experience.
 
-Technologies: React, JacaScript, Tailwind CSS, Daisy UI, Firebase, Node.js, Express.js, MongoDB, Mongoose, JWT
+Technologies: React, JavaScript, Tailwind CSS, Daisy UI, Firebase, Node.js, Express.js, MongoDB, Mongoose, JWT
 
 live link: https://dream-forge.web.app
